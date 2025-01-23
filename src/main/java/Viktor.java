@@ -39,19 +39,21 @@ public class Viktor {
                 "Goodbye. Remember, progress never rests." +
                 "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
                 running = false;
-            } else {
-                userInputs[inputCount] = userInput;
-                inputCount++;
-                String response = responses[random.nextInt(responses.length)];
-                System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                response + " " + userInput + ".\n" + 
-                "\nYour tasks await you: \n");
+            } else if (userInput.equalsIgnoreCase("list")) {
+                System.out.println("\nYour tasks await you: \n");
 
                 for (int i = 0; i < inputCount; i++) {
                     System.out.println((i + 1) + ". " + userInputs[i]);
                 }
 
-                System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+                System.out.println("\n");
+            } else {
+                userInputs[inputCount] = userInput;
+                inputCount++;
+                String response = responses[random.nextInt(responses.length)];
+                System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
+                response + " " + userInput + "." + 
+                "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
             }
         }
 
