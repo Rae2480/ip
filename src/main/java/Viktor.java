@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,8 +21,7 @@ public class Viktor {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         boolean running = true;
-        String[] userInputs = new String[100];
-        int inputCount = 0;
+        ArrayList<Task> tasks = new ArrayList<>();
         String[] responses = {
             "The pursuit of knowledge is a noble endeavor. I've added",
             "Progress requires sacrifice, but it is always worth the cost for",
@@ -42,14 +42,29 @@ public class Viktor {
             } else if (userInput.equalsIgnoreCase("list")) {
                 System.out.println("\nYour tasks await you: \n");
 
-                for (int i = 0; i < inputCount; i++) {
-                    System.out.println((i + 1) + ". " + userInputs[i]);
+                if (tasks.isEmpty()) {
+                    System.out.println("No tasks added yet!");
+                } else {
+                    for (int i = 0; i < tasks.size(); i++) {
+                        System.out.println((i + 1) + ". " + tasks.get(i));
+                    }
                 }
+            } else if (userInput.startsWith("mark")) {
+                String[] words = userInput.split(" ");
+                int taskNumber = Integer.parseInt(words[1]) - 1;
 
-                System.out.println("\n");
+                tasks.get(taskNumber).beDone();
+                System.out.println("\n" + tasks.get(taskNumber) + " is marked done!\n");
+
+            } else if (userInput.startsWith("unmark")) {
+                String[] words = userInput.split(" ");
+                int taskNumber = Integer.parseInt(words[1]) - 1;
+
+                tasks.get(taskNumber).beUndone();
+                System.out.println("\n" + tasks.get(taskNumber) + " is marked not done yet\n");
+
             } else {
-                userInputs[inputCount] = userInput;
-                inputCount++;
+                tasks.add(new Task(userInput));
                 String response = responses[random.nextInt(responses.length)];
                 System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
                 response + " " + userInput + "." + 
