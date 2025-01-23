@@ -48,6 +48,7 @@ public class Viktor {
                     for (int i = 0; i < tasks.size(); i++) {
                         System.out.println((i + 1) + ". " + tasks.get(i));
                     }
+                System.out.println("\n Now you have " + tasks.size() + " tasks in the list.");
                 }
             } else if (userInput.startsWith("mark")) {
                 String[] words = userInput.split(" ");
@@ -63,8 +64,24 @@ public class Viktor {
                 tasks.get(taskNumber).beUndone();
                 System.out.println("\n" + tasks.get(taskNumber) + " is marked not done yet\n");
 
-            } else {
-                tasks.add(new Task(userInput));
+            } else {  
+                // 3 types of tasks: todo, deadline, event
+                if (userInput.startsWith("todo")) {
+                    userInput = userInput.replace("todo", "").trim();
+                    tasks.add(new Todo(userInput));
+
+                } else if (userInput.startsWith("deadline")) {
+                    userInput = userInput.replace("deadline", "").trim();
+                    String[] parts = userInput.split("/by");
+                    tasks.add(new Deadline(parts[0], parts[1]));
+
+                } else if (userInput.startsWith("event")) {
+                    userInput = userInput.replace("event", "").trim();
+                    String[] parts = userInput.split("/from");
+                    String[] timeParts = parts[1].split("/to");
+                    tasks.add(new Event(parts[0], timeParts[0], timeParts[1]));
+                }
+                
                 String response = responses[random.nextInt(responses.length)];
                 System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
                 response + " " + userInput + "." + 
