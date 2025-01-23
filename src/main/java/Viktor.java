@@ -20,6 +20,16 @@ public class Viktor {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         boolean running = true;
+        String[] userInputs = new String[100];
+        int inputCount = 0;
+        String[] responses = {
+            "The pursuit of knowledge is a noble endeavor. I've added",
+            "Progress requires sacrifice, but it is always worth the cost for",
+            "Even the greatest minds require assistance sometimes. You seek to",
+            "Ah, progress—the double-edged sword of innovation, alongside:",
+            "Every leap forward brings challenges, but such is the price of this great task,",
+            "Interesting... I will have to do more research about this"
+        };
 
         while (running) {
             String userInput = scanner.nextLine();
@@ -30,17 +40,18 @@ public class Viktor {
                 "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
                 running = false;
             } else {
-                String[] responses = {
-                    "The pursuit of knowledge is a noble endeavor. So is",
-                    "Progress requires sacrifice, but it is always worth the cost for",
-                    "Even the greatest minds require assistance sometimes. You seek to know about",
-                    "Ah, progress—the double-edged sword of innovation, alongside:",
-                    "Every leap forward brings challenges, but such is the price of",
-                    "Interesting... Perhaps you could explain further about this"
-                };
+                userInputs[inputCount] = userInput;
+                inputCount++;
                 String response = responses[random.nextInt(responses.length)];
                 System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                response + " " + userInput + "." + "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+                response + " " + userInput + ".\n" + 
+                "\nYour tasks await you: \n");
+
+                for (int i = 0; i < inputCount; i++) {
+                    System.out.println((i + 1) + ". " + userInputs[i]);
+                }
+
+                System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
             }
         }
 
