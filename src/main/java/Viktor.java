@@ -47,30 +47,47 @@ public class Viktor {
                     "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
                     running = false;
                 } else if (userInput.equalsIgnoreCase("list")) {
-                    System.out.println("\nYour tasks await you: \n");
+                    System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
+                    "Your tasks await you: \n");
 
                     if (tasks.isEmpty()) {
-                        System.out.println("No tasks added yet!");
+                        System.out.println("No tasks added yet!" +
+                        "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
                     } else {
                         for (int i = 0; i < tasks.size(); i++) {
                             System.out.println((i + 1) + ". " + tasks.get(i));
                         }
-                    System.out.println('\n' + "Now you have " + tasks.size() + " tasks in the list.\n");
+                    System.out.println('\n' + "Now you have " + tasks.size() + " tasks in the list." +
+                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
                     }
                 } else if (userInput.startsWith("mark")) {
                     String[] words = userInput.split(" ");
                     int taskNumber = Integer.parseInt(words[1]) - 1;
-
+                    if (taskNumber >= tasks.size()) {
+                        throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
+                    }
                     tasks.get(taskNumber).beDone();
                     System.out.println("\n" + tasks.get(taskNumber) + " is marked done!\n");
 
                 } else if (userInput.startsWith("unmark")) {
                     String[] words = userInput.split(" ");
                     int taskNumber = Integer.parseInt(words[1]) - 1;
-
+                    if (taskNumber >= tasks.size()) {
+                        throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
+                    }
                     tasks.get(taskNumber).beUndone();
                     System.out.println("\n" + tasks.get(taskNumber) + " is marked not done yet\n");
 
+                } else if (userInput.startsWith("delete")) {
+                    String[] words = userInput.split(" ");
+                    int taskNumber = Integer.parseInt(words[1]) - 1;
+                    if (taskNumber >= tasks.size()) {
+                        throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
+                    }
+                    System.out.println("\n" + tasks.get(taskNumber) + " is removed from the list\n");
+                    tasks.remove(taskNumber);
+                    System.out.println('\n' + "Now you have " + tasks.size() + " tasks in the list.\n");
+                    
                 } else {  
                     // 3 types of tasks: todo, deadline, event
                     if (userInput.startsWith("todo")) {
@@ -100,7 +117,7 @@ public class Viktor {
                         }
                         tasks.add(new Event(parts[0], timeParts[0], timeParts[1]));
                     } else {
-                        throw new ViktorException("Wait, what? I don't understand what you're saying. Your duration is wrong!");
+                        throw new ViktorException("Wait, what? I don't understand what you're saying...");
                     }
 
                     if (testing) {
