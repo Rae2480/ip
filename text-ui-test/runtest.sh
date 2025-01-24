@@ -19,8 +19,8 @@ then
     exit 1
 fi
 
-# run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ../bin Viktor < input.txt > ACTUAL.TXT
+# run the program with testing set to true
+java -classpath ../bin -DisTesting=true Viktor < input.txt > ACTUAL.TXT
 
 # convert to UNIX format
 cp EXPECTED.TXT EXPECTED-UNIX.TXT

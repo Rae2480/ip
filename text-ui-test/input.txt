@@ -1,0 +1,8 @@
+todo invent hextech
+deadline convince mel for funding /by April 26th
+list
+mark 2
+event meeting with heimerdinger /from 8am /to 12pm
+list
+unmark 2
+bye

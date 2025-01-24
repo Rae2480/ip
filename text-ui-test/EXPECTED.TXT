@@ -1,7 +1,71 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Hello! I'm Viktor
+
+	      .__ __      __                
+	___  _|__|  | ___/  |_  ___________ 
+	\  \/ /  |  |/ /\   __\/  _ \_  __ \
+	 \   /|  |    <  |  | (  <_> )  | \/
+	  \_/ |__|__|_ \ |__|  \____/|__|   
+	              \/                    
+
+What can I do for you?
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Even the greatest minds require assistance sometimes. You seek to invent hextech
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Even the greatest minds require assistance sometimes. You seek to convince mel for funding /by April 26th
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+
+Your tasks await you: 
+
+1. [T][ ] invent hextech
+2. [D][ ] convince mel for funding  (by: April 26th)
+
+Now you have 2 tasks in the list.
+
+
+[D][X] convince mel for funding  (by: April 26th) is marked done!
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Even the greatest minds require assistance sometimes. You seek to meeting with heimerdinger /from 8am /to 12pm
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+
+Your tasks await you: 
+
+1. [T][ ] invent hextech
+2. [D][X] convince mel for funding  (by: April 26th)
+3. [E][ ] meeting with heimerdinger  (from: 8am  to: 12pm)
+
+Now you have 3 tasks in the list.
+
+
+[D][ ] convince mel for funding  (by: April 26th) is marked not done yet
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Goodbye. Remember, progress never rests.
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
