@@ -31,7 +31,7 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[" + getType() + "]" + super.toString() + " (from: " + DateParser.formatDateTime(from) + " to: " + DateParser.formatDateTime(to) + ")";
+        return "[" + getType() + "][" + getStatusIcon()+ "] " + super.toString() + " (from: " + DateParser.formatDateTime(from) + " to: " + DateParser.formatDateTime(to) + ")";
     }
 
     @Override

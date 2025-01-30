@@ -30,7 +30,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[" + getType() + "]" + super.toString() + " (by: " + DateParser.formatDateTime(by) + ")";
+        return "[" + getType() + "][" + getStatusIcon() + "] " + super.toString() + " (by: " + DateParser.formatDateTime(by) + ")";
     }
 
     @Override
