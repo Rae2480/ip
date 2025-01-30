@@ -1,5 +1,8 @@
+package viktor.ui;
 import java.util.List;
 import java.util.Scanner;
+import viktor.tasks.Task;
+
 
 public class UI {
     String name = "Viktor";

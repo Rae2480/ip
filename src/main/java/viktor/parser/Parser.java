@@ -1,3 +1,15 @@
+package viktor.parser;
+import viktor.commands.Commandable;
+import viktor.commands.AddTaskCommand;
+import viktor.commands.DeleteTaskComma;
+import viktor.commands.MarkCommand;
+import viktor.commands.UnmarkCommand;
+import viktor.exceptions.ViktorException;
+import viktor.tasks.TaskList;
+import viktor.commands.ListCommand;
+import viktor.commands.ByeCommand;
+import viktor.commands.TimeCommand;
+
 
 public class Parser {
 
@@ -18,7 +30,7 @@ public class Parser {
             }
             try {
                 int taskNumber = Integer.parseInt(words[1]);
-                return new DeleteTaskCommand(taskNumber - 1, tasks); 
+                return new DeleteTaskComma(taskNumber - 1, tasks); 
             } catch (NumberFormatException e) {
                 throw new ViktorException("Invalid task number for deletion.");
             }

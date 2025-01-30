@@ -1,4 +1,9 @@
+package viktor.commands;
+
 import java.io.IOException;
+import viktor.exceptions.ViktorException;
+import viktor.storage.Storage;
+import viktor.tasks.TaskList;
 
 public class MarkCommand implements Commandable {
     private int taskNumber;

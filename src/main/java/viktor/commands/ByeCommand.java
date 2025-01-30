@@ -1,3 +1,5 @@
+package viktor.commands;
+
 public class ByeCommand implements Commandable {
     @Override
     public void execute() {

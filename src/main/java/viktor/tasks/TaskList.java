@@ -1,3 +1,5 @@
+package viktor.tasks;
+
 import java.util.ArrayList;
 import java.util.List;
 
