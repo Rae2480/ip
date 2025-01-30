@@ -10,6 +10,10 @@ public class Event extends Task {
         this.to = to;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String getType() {
         return type;
@@ -18,6 +22,11 @@ public class Event extends Task {
     @Override
     public String toString() {
         return "[" + getType() + "]" + super.toString() + " (from:" + from + " to:" + to + ")";
+    }
+
+    @Override
+    public String toSave() {
+        return getType() + " | " + getStatusIcon() + " | " + description + " | " + from + " | " + to;
     }
     
 }

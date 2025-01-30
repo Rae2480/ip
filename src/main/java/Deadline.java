@@ -8,6 +8,10 @@ public class Deadline extends Task {
         this.by = by;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String getType() {
         return type;
@@ -16,5 +20,10 @@ public class Deadline extends Task {
     @Override
     public String toString() {
         return "[" + getType() + "]" + super.toString() + " (by:" + by + ")";
+    }
+
+    @Override
+    public String toSave() {
+        return getType() + " | " + getStatusIcon() + " | " + description + " | " + by;
     }
 }

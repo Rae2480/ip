@@ -5,6 +5,10 @@ public class Todo extends Task {
         super(description);
         this.type = "T";
     }
+
+    public String getDescription() {
+        return description;
+    }
     
     @Override
     public String getType() {
@@ -14,5 +18,10 @@ public class Todo extends Task {
     @Override
     public String toString() {
         return "[" + getType() + "]" + super.toString();
+    }
+
+    @Override
+    public String toSave() {
+        return getType() + " | " + getStatusIcon() + " | " + description;
     }
 }
