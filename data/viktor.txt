@@ -1,2 +1,4 @@
-E |   | gala | 5pm | 12am
-T | X | invent
+T |   | innovate
+D |   | eat | Dec. 2 2025, 18:00
+E |   | festival | Dec. 5 2025, 07:00 | Dec. 8 2025, 22:00
+D |   | cook | Dec. 7 2025, 16:00

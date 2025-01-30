@@ -1,11 +1,14 @@
+import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 public class Deadline extends Task {
     private String type;
-    private String by;
+    private LocalDateTime by;
 
     public Deadline(String description, String by) {
         super(description);
         this.type = "D";
-        this.by = by;
+        this.by = DateParser.parseDateTime(by);;
     }
 
     public String getDescription() {
@@ -17,13 +20,18 @@ public class Deadline extends Task {
         return type;
     }
 
+    public boolean matchesDate(LocalDate targetDate) {
+        return targetDate.equals(by.toLocalDate());
+    }
+
+
     @Override
     public String toString() {
-        return "[" + getType() + "]" + super.toString() + " (by:" + by + ")";
+        return "[" + getType() + "]" + super.toString() + " (by: " + DateParser.formatDateTime(by) + ")";
     }
 
     @Override
     public String toSave() {
-        return getType() + " | " + getStatusIcon() + " | " + description + " | " + by;
+        return getType() + " | " + getStatusIcon() + " | " + description + " | " + DateParser.formatDateTime(by);
     }
 }
