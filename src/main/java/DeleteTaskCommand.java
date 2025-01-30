@@ -14,7 +14,7 @@ public class DeleteTaskCommand implements Commandable {
         if (taskNumber >= tasks.size()) {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
-        System.out.println("\n" + tasks.getTask(taskNumber).getDescription() + " is no longer your concern.\n");
+        System.out.println("\nI guess "+ tasks.getTask(taskNumber).getDescription() + " is no longer your concern.\n");
         tasks.removeTask(taskNumber);
         System.out.println('\n' + "Now you have " + tasks.size() + " remaining tasks.\n");
 

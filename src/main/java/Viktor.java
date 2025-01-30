@@ -7,29 +7,27 @@ public class Viktor {
     private TaskList taskList;
     private Parser parser;
 
-    // Constructor
     public Viktor() {
         ui = new UI();
         taskList = new TaskList();
         parser = new Parser();
     }
 
-    // Start the chatbot
     public void start() {
         String userInput;
         ui.showWelcomeMessage();
-        
+
         try {
-            ArrayList<Task> loadedTasks = Storage.load(); // Load tasks from file
-            taskList.setTasks(loadedTasks); // Assuming you have a method to set tasks
+            ArrayList<Task> loadedTasks = Storage.load(); 
+            taskList.setTasks(loadedTasks); 
         } catch (IOException e) {
-            System.out.println("No previous tasks found. Starting with an empty task list.");
+            System.out.println("Are you ready to put science first and put yourself to the text?");
         }
 
         while (true) {
             userInput = ui.readCommand();
             try {
-                Commandable command = parser.parse(userInput, taskList, false); 
+                Commandable command = parser.parse(userInput, taskList, true); 
                 command.execute();
                 if (command instanceof ByeCommand) {
                     break; 
@@ -37,14 +35,13 @@ public class Viktor {
             } catch (ViktorException e) {
                 ui.showErrorMessage(e.getMessage());
             } catch (Exception e) {
-                ui.showErrorMessage("Something went wrong!");
+                ui.showErrorMessage("Something went wrong! Very wrong! Hextech is alive!");
             }
         }
 
         ui.closeScanner();
     }
 
-    // Main method to start Viktor
     public static void main(String[] args) {
         Viktor viktor = new Viktor();
         viktor.start();

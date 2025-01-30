@@ -1,4 +1,3 @@
-
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
 Hello! I'm Viktor
@@ -18,7 +17,7 @@ What can I do for you?
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
-Even the greatest minds require assistance sometimes. You seek to todo invent hextech
+Even the greatest minds require assistance sometimes. You seek to invent hextech
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
@@ -26,7 +25,33 @@ Even the greatest minds require assistance sometimes. You seek to todo invent he
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
-Even the greatest minds require assistance sometimes. You seek to deadline convince mel for funding /by April 26th
+Even the greatest minds require assistance sometimes. You seek to convince mel for funding
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+
+You've just finished convince mel for funding! True progress is still far away but a bit less further now!
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Your tasks await you: 
+
+1. [T][ ] invent hextech
+2. [D][X] convince mel for funding (by: Apr. 3 1845, 17:30)
+
+Currently, you have 2 tasks in the list.
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+ Oh you've yet to finish convince mel for funding? Don't forget: progress waits for no man
+
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Even the greatest minds require assistance sometimes. You seek to meeting with heimerdinger
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
@@ -37,25 +62,15 @@ Even the greatest minds require assistance sometimes. You seek to deadline convi
 Your tasks await you: 
 
 1. [T][ ] invent hextech
-2. [D][ ] convince mel for funding (by: April 26th)
+2. [D][ ] convince mel for funding (by: Apr. 3 1845, 17:30)
+3. [E][ ] meeting with heimerdinger (from: Apr. 5 1845, 21:00 to: Apr. 6 1845, 03:00)
 
-Now you have 2 tasks in the list.
-
-⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
-
-
- You've just finished convince mel for funding! True progress is still far away but a bit less further now!
-
-
-⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
-
-Even the greatest minds require assistance sometimes. You seek to event meeting with heimerdinger /from 8am /to 12pm
+Currently, you have 3 tasks in the list.
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
 
-
-invent hextech is no longer your concern.
+I guess invent hextech is no longer your concern.
 
 
 Now you have 2 remaining tasks.
@@ -65,15 +80,24 @@ Now you have 2 remaining tasks.
 
 Your tasks await you: 
 
-1. [D][X] convince mel for funding (by: April 26th)
-2. [E][ ] meeting with heimerdinger (from: 8am to: 12pm)
+1. [D][ ] convince mel for funding (by: Apr. 3 1845, 17:30)
+2. [E][ ] meeting with heimerdinger (from: Apr. 5 1845, 21:00 to: Apr. 6 1845, 03:00)
 
-Now you have 2 tasks in the list.
+Currently, you have 2 tasks in the list.
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
 
 
- Oh you've yet to finish meeting with heimerdinger? Don't forget: progress waits for no man
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+Here are your tasks for Apr. 6 1845:
+
+[E][ ] meeting with heimerdinger (from: Apr. 5 1845, 21:00 to: Apr. 6 1845, 03:00)
+
+⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅
+
+
+You've just finished meeting with heimerdinger! True progress is still far away but a bit less further now!
 
 
 ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅

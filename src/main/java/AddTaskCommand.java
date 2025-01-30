@@ -38,7 +38,7 @@ public class AddTaskCommand implements Commandable {
         switch (taskType) {
         case TODO:
             Todo todo = new Todo(taskDescription);
-            taskList.addTask(todo); // Use taskList to add the task
+            taskList.addTask(todo); 
             output = todo.getDescription();
             break;
 
@@ -49,7 +49,7 @@ public class AddTaskCommand implements Commandable {
             }
             try {
                 Deadline deadline = new Deadline(parts[0].trim(), parts[1].trim());
-                taskList.addTask(deadline); // Use taskList to add the task
+                taskList.addTask(deadline); 
                 output = deadline.getDescription();
             } catch (DateTimeParseException e) {
                 throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2025 1830'.");
@@ -67,7 +67,7 @@ public class AddTaskCommand implements Commandable {
             }
             try {
                 Event event = new Event(eventParts[0].trim(), timeParts[0].trim(), timeParts[1].trim());
-                taskList.addTask(event); // Use taskList to add the task
+                taskList.addTask(event); 
                 output = event.getDescription();
             } catch (DateTimeParseException e) {
                 throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2019 6:00 PM'.");
@@ -78,10 +78,9 @@ public class AddTaskCommand implements Commandable {
             throw new ViktorException("Unknown command type.");
         }
 
-        // Handle testing output
         if (testing) {
             System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                    testingResponse + " " + userInput + 
+                    testingResponse + " " + output + 
                     "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n");
         } else {
             String response = responses[random.nextInt(responses.length)];

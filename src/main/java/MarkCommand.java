@@ -15,7 +15,7 @@ public class MarkCommand implements Commandable {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
         tasks.getTask(taskNumber).beDone();
-        System.out.println("\n You've just finished " + tasks.getTask(taskNumber).getDescription()
+        System.out.println("\nYou've just finished " + tasks.getTask(taskNumber).getDescription()
                             + "! True progress is still far away but a bit less further now!\n");
         try {
             Storage.save(tasks);
