@@ -1,15 +1,15 @@
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 
 public class Viktor {
-    private static boolean testing = false;
+    private static boolean testing = true;
 
     public static void main(String[] args) {
-        if (args.length > 0 && args[0].equals("testing")) {
-            testing = true;
-        }
         String name = "Viktor";
         String logo = "\n" 
                 + "\t" + "      .__ __      __                \n"
@@ -28,8 +28,16 @@ public class Viktor {
         Random random = new Random();
         boolean running = true;
 
+        TaskList taskList = new TaskList();  
+        ArrayList<Task> tasks;
 
-        ArrayList<Task> tasks = new ArrayList<>();
+        try {
+            tasks = taskList.load();
+        } catch (IOException e) {
+            System.out.println("\nNo saved tasks found. Starting fresh.\n");
+            tasks = new ArrayList<>();
+        }
+
         String[] responses = {
             "The pursuit of knowledge is a noble endeavor. I've added",
             "Progress requires sacrifice, but it is always worth the cost for",
@@ -44,7 +52,8 @@ public class Viktor {
         while (running) {
             String userInput = scanner.nextLine();
             try {
-                Command command = Command.fromString(userInput.split(" ")[0]);
+                String  words[] = userInput.split(" ");
+                Command command = Command.fromString(words[0]);
 
                 switch (command) {
                 case BYE:
@@ -73,7 +82,6 @@ public class Viktor {
                 case MARK:
                 case UNMARK:
                 case DELETE:
-                    String[] words = userInput.split(" ");
                     int taskNumber = Integer.parseInt(words[1]) - 1;
                     if (taskNumber >= tasks.size()) {
                         throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
@@ -81,48 +89,129 @@ public class Viktor {
 
                     if (command == Command.MARK) {
                         tasks.get(taskNumber).beDone();
-                        System.out.println("\n" + tasks.get(taskNumber) + " is marked done!\n");
+                        System.out.println("\n You've just finished " + tasks.get(taskNumber).getDescription()
+                            + "! True progress is still far away but a bit less further now!\n");
                     } else if (command == Command.UNMARK) {
                         tasks.get(taskNumber).beUndone();
-                        System.out.println("\n" + tasks.get(taskNumber) + " is marked not done yet\n");
+                        System.out.println("\n Oh you've yet to finish " + tasks.get(taskNumber).getDescription() 
+                            + "? Don't forget: progress waits for no man\n");
                     } else { 
-                        System.out.println("\n" + tasks.get(taskNumber) + " is removed from the list\n");
+                        System.out.println("\n" + tasks.get(taskNumber).getDescription() + " is no longer your concern.\n");
                         tasks.remove(taskNumber);
-                        System.out.println('\n' + "Now you have " + tasks.size() + " tasks in the list.\n");
+                        System.out.println('\n' + "Now you have " + tasks.size() + " remaining tasks.\n");
+                    }
+                    try {
+                        taskList.save(tasks);
+                    } catch (IOException e) {
+                        System.out.println("Ah something must've gone awry: " + e.getMessage() 
+                            + " Well, mistakes are but a part of progress.");
                     }
                     break;
 
                 case TODO:
                 case DEADLINE:
                 case EVENT:
-                    if (userInput.split(" ").length < 2) {
-                        throw new ViktorException("Task description cannot be empty!");
+                    if (words.length < 2) {
+                        throw new ViktorException("There's something you're not telling me!");
                     }
+                    String taskDescription = userInput.substring(words[0].length()).trim();
+                    String output;
                     if (command == Command.TODO) {
-                        tasks.add(new Todo(userInput.substring(5).trim()));
+                        Todo todo = new Todo(taskDescription);
+                        tasks.add(todo);
+                        output = todo.getDescription();
                     } else if (command == Command.DEADLINE) {
-                        String[] parts = userInput.substring(9).split("/by");
-                        tasks.add(new Deadline(parts[0], parts[1]));
+                        String[] parts = taskDescription.split("/by");  
+                        if (parts.length != 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
+                            throw new ViktorException("When's the deadline? Please focus, when is it due!!");
+                        }
+                        try {
+                            Deadline deadline = new Deadline(parts[0].trim(), parts[1].trim());
+                            tasks.add(deadline);
+                            output = deadline.getDescription();
+                        } catch (DateTimeParseException e) {
+                            throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2019 6:00 PM'.");
+                        }
                     } else { 
-                        String[] parts = userInput.substring(6).split("/from");
-                        String[] timeParts = parts[1].split("/to");
-                        tasks.add(new Event(parts[0], timeParts[0], timeParts[1]));
+                        String[] parts = taskDescription.split("/from", 2);
+                        if (parts.length < 2) {
+                            throw new ViktorException("Invalid event! You have to give me some details.");
+                        }
+                        String[] timeParts = parts[1].split("/to", 2);
+                        if (timeParts.length < 2) {
+                            throw new ViktorException("Invalid event input! Please provide both start and end times.");
+                        }
+                        try {
+                            Event event = new Event(parts[0].trim(), timeParts[0].trim(), timeParts[1].trim());
+                            tasks.add(event);
+                            output = event.getDescription();
+                        } catch (DateTimeParseException e) {
+                            throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2019 6:00 PM'.");
+                        }
+                    }
+                    if (testing) {
+                        System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
+                        testingResponse + " " + userInput + 
+                        "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n");
+                    } else {
+                        String response = responses[random.nextInt(responses.length)];
+                        System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
+                        response + " " + output + "." + 
+                        "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+                    } 
+                    try {
+                        taskList.save(tasks);
+                    } catch (IOException e) {
+                        System.out.println("An error occurred while saving tasks: " + e.getMessage());
                     }
                     break;
 
-                    default:
-                        throw new ViktorException("Wait, what? I don't understand what you're saying...");
-                }
+                case TIME:
+                    if (words.length < 2) {
+                        throw new ViktorException("You must specify a date for the search!");
+                    }
 
-                if (testing) {
+                    String dateInput = userInput.substring(words[0].length()).trim();
+                    LocalDate targetDate;
+                    
+                    try {
+                        targetDate = DateParser.parseDateOnly(dateInput);
+                    } catch (DateTimeParseException e) {
+                        throw new ViktorException("Invalid date format! Use 'd/M/yyyy', e.g., '12/12/2025'.");
+                    }
+
+                    boolean found = false;
                     System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                    testingResponse + " " + userInput + 
-                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n");
-                } else {
-                    String response = responses[random.nextInt(responses.length)];
-                    System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                    response + " " + userInput + "." + 
-                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+                            "Here are your tasks for " + DateParser.formatDate(targetDate) + ":\n");
+
+                    for (Task task : tasks) {
+                        if (task instanceof Deadline) {
+                            Deadline deadline = (Deadline) task;
+                            if (deadline.matchesDate(targetDate)) {
+                                System.out.println(deadline);
+                                found = true;
+                            }
+                        }
+                    }
+
+                    for (Task task : tasks) {
+                        if (task instanceof Event) {
+                            Event event = (Event) task;
+                            if (event.matchesDate(targetDate)) {
+                                System.out.println(event);
+                                found = true;
+                            }
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("No tasks found for the specified date.");
+                    }
+
+                    System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+                    break;
+                default:
+                        throw new ViktorException("Wait, what? I don't understand what you're saying...");
                 }
 
             } catch (ViktorException e) {
@@ -131,7 +220,6 @@ public class Viktor {
                                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
             }
         }
-
         scanner.close();
     }
 }

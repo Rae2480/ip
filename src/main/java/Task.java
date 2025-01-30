@@ -1,6 +1,6 @@
 public abstract class Task {
-    private String description;
-    private boolean isDone;
+    protected String description;
+    protected boolean isDone;
 
     public Task(String description) {
         this.description = description;
@@ -17,6 +17,8 @@ public abstract class Task {
 
     public abstract String getType();
 
+    public abstract String getDescription();
+
     public String getStatusIcon() {
         return isDone ? "X" : " ";
     }
@@ -25,4 +27,6 @@ public abstract class Task {
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }
+
+    public abstract String toSave();
 }
