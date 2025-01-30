@@ -1,10 +1,10 @@
 # Viktor User Guide
 
-// Update the title above to match the actual product name
+// Update the title above to match the actual product name 
 
 // Product screenshot goes here
 
-// Product intro goes here
+// A chatbot resembling the mannerisms of Viktor from the hit netflix series Arcane.
 
 ## Adding deadlines
 
