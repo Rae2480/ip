@@ -31,4 +31,3 @@ public class DateParser {
         return date.format(OUTPUT_DATE_FORMATTER);
     }
 }
-

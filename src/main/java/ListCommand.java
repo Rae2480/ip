@@ -1,9 +1,8 @@
-import java.util.ArrayList;
 
 public class ListCommand implements Commandable {
-    private ArrayList<Task> tasks;
+    private TaskList tasks;
 
-    public ListCommand(ArrayList<Task> tasks) {
+    public ListCommand(TaskList tasks) {
         this.tasks = tasks;
     }
 
@@ -15,7 +14,7 @@ public class ListCommand implements Commandable {
             System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" 
                 + "Your tasks await you: \n");
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i + 1) + ". " + tasks.get(i));
+                System.out.println((i + 1) + ". " + tasks.getTask(i));
             }
             System.out.println('\n' + "Currently, you have " + tasks.size() 
                     + " tasks in the list." 

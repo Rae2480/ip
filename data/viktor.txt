@@ -1,4 +1,2 @@
-T |   | innovate
-D |   | eat | Dec. 2 2025, 18:00
-E |   | festival | Dec. 5 2025, 07:00 | Dec. 8 2025, 22:00
-D |   | cook | Dec. 7 2025, 16:00
+E | X | conference | Feb. 3 2025, 08:30 | Feb. 5 2025, 21:30
+T |   | read book

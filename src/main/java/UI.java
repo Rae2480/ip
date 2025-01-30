@@ -19,7 +19,7 @@ public class UI {
 
     public void showWelcomeMessage() {
         System.out.println("⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" 
-            + "Hello! I'm Viktor\n" + "What can I do for you?\n" 
+            + "Hello! I'm Viktor\n" + logo + "\n"+ "What can I do for you?\n" 
             + "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
     }
 
@@ -29,6 +29,10 @@ public class UI {
         } else {
             tasks.forEach(task -> System.out.println(task));
         }
+    }
+
+    public void showErrorMessage(String message) {
+        System.out.println("Error: " + message);
     }
 
     public String readCommand() {
