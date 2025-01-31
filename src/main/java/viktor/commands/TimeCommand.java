@@ -12,16 +12,29 @@ import viktor.tasks.Event;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
 
-
+/**
+ * Command to list all tasks on a specific date.
+ */
 public class TimeCommand implements Commandable {
     private final TaskList tasks;
     private final String dateInput;
 
+    /**
+     * Constructs a TimeCommand with the given TaskList and date input.
+     * 
+     * @param tasks The TaskList to search for tasks.
+     * @param dateInput The date to search for tasks on.
+     */
     public TimeCommand(TaskList tasks, String dateInput) {
         this.tasks = tasks;
         this.dateInput = dateInput;
     }
 
+    /**
+     * Executes the command to list all tasks on the specified date.
+     * 
+     * @throws ViktorException If the input is invalid or there is an error with task creation.
+     */
     @Override
     public void execute() throws ViktorException {
         LocalDate targetDate;

@@ -17,8 +17,9 @@ import viktor.tasks.Todo;
 
 import viktor.ui.UI;
 
-
-
+/**
+ * Command to add a task to the task list based on user input.
+ */
 public class AddTaskCommand implements Commandable {
     private String userInput;
     private TaskList taskList; 
@@ -34,12 +35,30 @@ public class AddTaskCommand implements Commandable {
     };
     String testingResponse = ("Even the greatest minds require assistance sometimes. You seek to");
 
+    /**
+     * Constructs the AddTaskCommand with user input, task list, and testing mode.
+     * 
+     * @param userInput The user's command input.
+     * @param taskList The list of tasks.
+     * @param testing Whether the command is in testing mode.
+     */
+    
     public AddTaskCommand(String userInput, TaskList taskList, boolean isBeingTested) { 
         this.userInput = userInput;
         this.taskList = taskList;
         this.isBeingTested = isBeingTested;
     }
 
+    /**
+     * Executes the command to add a task to the task list based on user input.
+     * 
+     * Creates a Todo, Deadline, or Event task and adds it to the task list, depending on user input.
+     * Prints a randomised response to the user, echoing the task description.
+     * During testing, responses are fixed.
+     * Saves saves the task list after the task is added.
+     * 
+     * @throws ViktorException If the input is invalid or there is an error with task creation.
+     */
     @Override
     public void execute() throws ViktorException {
         String[] words = userInput.split(" ");
