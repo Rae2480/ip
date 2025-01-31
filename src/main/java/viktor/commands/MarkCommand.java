@@ -2,8 +2,11 @@ package viktor.commands;
 
 import java.io.IOException;
 import viktor.exceptions.ViktorException;
+
 import viktor.storage.Storage;
+
 import viktor.tasks.TaskList;
+import viktor.ui.UI;
 
 public class MarkCommand implements Commandable {
     private int taskNumber;
@@ -20,8 +23,8 @@ public class MarkCommand implements Commandable {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
         tasks.getTask(taskNumber).beDone();
-        System.out.println("\nYou've just finished " + tasks.getTask(taskNumber).getDescription()
-                            + "! True progress is still far away but a bit less further now!\n");
+        System.out.println(UI.CURLY_START + "You've just finished " + tasks.getTask(taskNumber).getDescription()
+                            + "! True progress is still far away but a bit less further now!" + UI.CURLY_END);
         try {
             Storage.save(tasks);
         } catch (IOException e) {

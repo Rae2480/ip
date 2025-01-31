@@ -1,21 +1,18 @@
 package viktor.tasks;
 
-import viktor.parser.DateParser;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
+import viktor.parser.DateParser;
+
 public class Deadline extends Task {
-    private String type;
-    private LocalDateTime by;
+    private final String type;
+    private final LocalDateTime by;
 
     public Deadline(String description, String by) {
         super(description);
         this.type = "D";
-        this.by = DateParser.parseDateTime(by);;
-    }
-
-    public String getDescription() {
-        return description;
+        this.by = DateParser.parseDateTime(by);
     }
 
     @Override

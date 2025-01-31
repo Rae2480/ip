@@ -1,19 +1,22 @@
 package viktor.parser;
-import viktor.commands.Commandable;
+
 import viktor.commands.AddTaskCommand;
+import viktor.commands.ByeCommand;
+import viktor.commands.Commandable;
 import viktor.commands.DeleteTaskComma;
+import viktor.commands.ListCommand;
 import viktor.commands.MarkCommand;
+import viktor.commands.TimeCommand;
 import viktor.commands.UnmarkCommand;
+
 import viktor.exceptions.ViktorException;
 import viktor.tasks.TaskList;
-import viktor.commands.ListCommand;
-import viktor.commands.ByeCommand;
-import viktor.commands.TimeCommand;
+
 
 
 public class Parser {
 
-    public Commandable parse(String userInput, TaskList tasks, boolean testing) throws ViktorException {
+    public Commandable parse(String userInput, TaskList tasks, boolean isBeingTested) throws ViktorException {
         String[] words = userInput.split(" ", 2);
         String commandWord = words[0];
 
@@ -22,7 +25,7 @@ public class Parser {
             if (words.length < 2) {
                 throw new ViktorException("Add? Add what?");
             }
-            return new AddTaskCommand(words[1], tasks, testing);
+            return new AddTaskCommand(words[1], tasks, isBeingTested);
 
         case "DELETE":
             if (words.length < 2) {

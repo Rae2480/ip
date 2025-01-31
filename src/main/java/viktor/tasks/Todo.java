@@ -1,14 +1,10 @@
 package viktor.tasks;
 public class Todo extends Task {
-    private String type;
+    private final String type;
 
     public Todo(String description) {
         super(description);
         this.type = "T";
-    }
-
-    public String getDescription() {
-        return description;
     }
     
     @Override

@@ -18,7 +18,9 @@ public abstract class Task {
 
     public abstract String getType();
 
-    public abstract String getDescription();
+    public  String getDescription() {
+        return description;
+    }
 
     public String getStatusIcon() {
         return isDone ? "X" : " ";
