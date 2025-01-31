@@ -2,6 +2,7 @@ package viktor.parser;
 import viktor.commands.Commandable;
 import viktor.commands.AddTaskCommand;
 import viktor.commands.DeleteTaskComma;
+import viktor.commands.FindCommand;
 import viktor.commands.MarkCommand;
 import viktor.commands.UnmarkCommand;
 import viktor.exceptions.ViktorException;
@@ -59,6 +60,12 @@ public class Parser {
 
         case "LIST":
             return new ListCommand(tasks);
+
+        case "FIND":
+            if (words.length < 2) {
+                throw new ViktorException("Find what?");
+            }
+            return new FindCommand(tasks, words[1]);
 
         case "BYE":
             return new ByeCommand();
