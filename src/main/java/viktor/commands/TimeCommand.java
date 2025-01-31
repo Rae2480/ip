@@ -11,6 +11,7 @@ import viktor.tasks.Deadline;
 import viktor.tasks.Event;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
+import viktor.ui.UI;
 
 /**
  * Command to list all tasks on a specific date.
@@ -46,7 +47,7 @@ public class TimeCommand implements Commandable {
         }
 
         boolean found = false;
-        System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
+        System.out.println( UI.CURLY_START +
                 "Here are your tasks for " + DateParser.formatDate(targetDate) + ":\n");
 
         for (Task task : tasks.getTasks()) {
@@ -62,6 +63,6 @@ public class TimeCommand implements Commandable {
                 + DateParser.formatDate(targetDate) + "!" );
         }
 
-        System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+        System.out.println(UI.CURLY_END);
     }
 }

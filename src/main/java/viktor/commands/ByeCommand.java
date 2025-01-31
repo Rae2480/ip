@@ -1,5 +1,8 @@
 package viktor.commands;
 
+import viktor.ui.UI;
+
+
 /**
  * Command to handle the goodbye message when the program ends.
  */
@@ -11,8 +14,6 @@ public class ByeCommand implements Commandable {
      */
     @Override
     public void execute() {
-        System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-        "Goodbye. Remember, progress never rests." +
-        "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+        System.out.println(UI.CURLY_START + "Goodbye. Remember, progress never rests." + UI.CURLY_END);
     }
 }

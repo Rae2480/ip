@@ -7,6 +7,8 @@ import viktor.storage.Storage;
 
 import viktor.tasks.TaskList;
 
+import viktor.ui.UI;
+
 /**
  * Command to delete a task from the task list.
  */
@@ -35,9 +37,10 @@ public class DeleteTaskComma implements Commandable {
         if (taskNumber >= tasks.size()) {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
-        System.out.println("\nI guess "+ tasks.getTask(taskNumber).getDescription() + " is no longer your concern.\n");
+        System.out.println(UI.CURLY_START + "I guess "+ tasks.getTask(taskNumber).getDescription() 
+                + " is no longer your concern." + "\n");
         tasks.removeTask(taskNumber);
-        System.out.println('\n' + "Now you have " + tasks.size() + " remaining tasks.\n");
+        System.out.println("Now you have " + tasks.size() + " remaining tasks." + UI.CURLY_END);
 
         try {
                 Storage.save(tasks);

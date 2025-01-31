@@ -6,6 +6,7 @@ import viktor.exceptions.ViktorException;
 import viktor.storage.Storage;
 
 import viktor.tasks.TaskList;
+import viktor.ui.UI;
 
 /**
  * Command to unmark a task as done.
@@ -36,8 +37,8 @@ public class UnmarkCommand implements Commandable {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
         tasks.getTask(taskNumber).beUndone();
-        System.out.println("\n Oh you've yet to finish " + tasks.getTask(taskNumber).getDescription() 
-                + "? Don't forget: progress waits for no man\n");
+        System.out.println(UI.CURLY_START + "Oh you've yet to finish " + tasks.getTask(taskNumber).getDescription() 
+                + "? Don't forget: progress waits for no man" + UI.CURLY_END);
         try {
             Storage.save(tasks);
         } catch (IOException e) {
