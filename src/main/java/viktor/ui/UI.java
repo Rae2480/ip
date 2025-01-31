@@ -1,18 +1,21 @@
 package viktor.ui;
+
 import java.util.List;
 import java.util.Scanner;
+
 import viktor.tasks.Task;
 
 
 public class UI {
-    String name = "Viktor";
-    String logo = "\n" 
+    public static final String LOGO = "\n" 
             + "\t" + "      .__ __      __                \n"
             + "\t" + "___  _|__|  | ___/  |_  ___________ \n"
             + "\t" + "\\  \\/ /  |  |/ /\\   __\\/  _ \\_  __ \\\n"
             + "\t" + " \\   /|  |    <  |  | (  <_> )  | \\/\n"
             + "\t" + "  \\_/ |__|__|_ \\ |__|  \\____/|__|   \n"
             + "\t" + "              \\/                    \n";
+    public static final String CURLY_START = "\n" + "⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅" + "\n\n";
+    public static final String CURLY_END = "\n\n" + "⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅" + "\n";
 
     private Scanner scanner;
 
@@ -21,9 +24,9 @@ public class UI {
     }
 
     public void showWelcomeMessage() {
-        System.out.println("⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" 
-            + "Hello! I'm Viktor\n" + logo + "\n"+ "What can I do for you?\n" 
-            + "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+        System.out.println(CURLY_START 
+            + "Hello! I'm Viktor\n" + LOGO + "\n"+ "What can I do for you?\n" 
+            + CURLY_END);
     }
 
     public void showTaskList(List<Task> tasks) {

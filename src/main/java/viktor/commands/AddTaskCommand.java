@@ -2,23 +2,29 @@ package viktor.commands;
 
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
+
 import java.util.Random;
+
 import viktor.exceptions.ViktorException;
+
 import viktor.storage.Storage;
+
 import viktor.tasks.Deadline;
 import viktor.tasks.Event;
 import viktor.tasks.TaskList;
 import viktor.tasks.TaskType;
 import viktor.tasks.Todo;
 
+import viktor.ui.UI;
+
 
 
 public class AddTaskCommand implements Commandable {
     private String userInput;
     private TaskList taskList; 
-    private boolean testing;
-    private Random random = new Random();
-    String[] responses = {
+    private boolean isBeingTested;
+    private final Random random = new Random();
+    private static final String[] responses = {
         "The pursuit of knowledge is a noble endeavor. I've added",
         "Progress requires sacrifice, but it is always worth the cost for",
         "Even the greatest minds require assistance sometimes. You seek to",
@@ -28,10 +34,10 @@ public class AddTaskCommand implements Commandable {
     };
     String testingResponse = ("Even the greatest minds require assistance sometimes. You seek to");
 
-    public AddTaskCommand(String userInput, TaskList taskList, boolean testing) { 
+    public AddTaskCommand(String userInput, TaskList taskList, boolean isBeingTested) { 
         this.userInput = userInput;
         this.taskList = taskList;
-        this.testing = testing;
+        this.isBeingTested = isBeingTested;
     }
 
     @Override
@@ -63,7 +69,7 @@ public class AddTaskCommand implements Commandable {
                 taskList.addTask(deadline); 
                 output = deadline.getDescription();
             } catch (DateTimeParseException e) {
-                throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2025 1830'.");
+                throw new ViktorException("I cannot understand that date format! E.g., '2/12/2025 1830'.");
             }
             break;
 
@@ -89,15 +95,11 @@ public class AddTaskCommand implements Commandable {
             throw new ViktorException("Unknown command type.");
         }
 
-        if (testing) {
-            System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                    testingResponse + " " + output + 
-                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n");
+        if (isBeingTested) {
+            System.out.println(UI.CURLY_START + testingResponse + " " + output + UI.CURLY_END);
         } else {
             String response = responses[random.nextInt(responses.length)];
-            System.out.println("\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n\n" +
-                    response + " " + output + "." + 
-                    "\n\n⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱᐧ.˳˳.⋅\n");
+            System.out.println(UI.CURLY_START + response + " " + output + "." + UI.CURLY_END);
         }
 
         try {

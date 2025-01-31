@@ -4,19 +4,15 @@ import java.time.LocalDateTime;
 import viktor.parser.DateParser;
 
 public class Event extends Task {
-    private String type;
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private final String type;
+    private final LocalDateTime from;
+    private final LocalDateTime to;
 
     public Event(String description, String from, String to) {
         super(description);
         this.type = "E";
         this.from = DateParser.parseDateTime(from);;
         this.to = DateParser.parseDateTime(to);;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     @Override

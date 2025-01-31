@@ -1,10 +1,13 @@
 package viktor.storage;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import viktor.tasks.Deadline;
 import viktor.tasks.Event;
 import viktor.tasks.Task;
@@ -15,7 +18,6 @@ import viktor.tasks.Todo;
 public class Storage {
     private static final String FILE_PATH = "./ip/data/viktor.txt";
 
-    // Modify the save method to accept TaskList
     public static void save(TaskList taskList) throws IOException {
         File f = new File(FILE_PATH);
         f.getParentFile().mkdirs();
