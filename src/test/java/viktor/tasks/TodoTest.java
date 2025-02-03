@@ -1,8 +1,9 @@
 package viktor.tasks;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class TodoTest {
 
@@ -15,7 +16,8 @@ class TodoTest {
     @Test
     void testGetDescription() {
         Todo todo = new Todo("Test task");
-        assertEquals("Test task", todo.getDescription(), "Description should match the one provided in the constructor.");
+        assertEquals("Test task", todo.getDescription(),
+            "Description should match the one provided in the constructor.");
     }
 
     @Test

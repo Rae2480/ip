@@ -1,8 +1,13 @@
 package viktor.tasks;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+
 
 
 public class TaskTest {
@@ -12,7 +17,7 @@ public class TaskTest {
     public void testMarkCompleted() {
         Task task = new Todo("Test task");
         assertFalse(task.getStatusIcon().equals("X"), "Task should initially not be completed.");
-        
+
         task.beDone();
         assertTrue(task.getStatusIcon().equals("X"), "Task should be marked as completed.");
     }
@@ -22,7 +27,7 @@ public class TaskTest {
     public void testMatchesDate() {
         String deadlineDate = "2/12/2025 1200";
         Deadline deadline = new Deadline("Test task", deadlineDate);
-        
+
         assertTrue(deadline.matchesDate(LocalDate.of(2025, 2, 2)), "Deadline should match the given date.");
         assertFalse(deadline.matchesDate(LocalDate.of(2025, 2, 3)), "Deadline should not match a different date.");
     }
