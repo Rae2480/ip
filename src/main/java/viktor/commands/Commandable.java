@@ -12,5 +12,5 @@ public interface Commandable {
      * 
      * @throws ViktorException If an error occurs during execution.
      */
-    void execute() throws ViktorException;
+    String execute() throws ViktorException;
 }

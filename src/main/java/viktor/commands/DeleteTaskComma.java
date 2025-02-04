@@ -2,12 +2,8 @@ package viktor.commands;
 
 import java.io.IOException;
 import viktor.exceptions.ViktorException;
-
 import viktor.storage.Storage;
-
 import viktor.tasks.TaskList;
-
-import viktor.ui.UI;
 
 /**
  * Command to delete a task from the task list.
@@ -30,23 +26,29 @@ public class DeleteTaskComma implements Commandable {
     /**
      * Executes the command to delete a task from the task list.
      * 
+     * @return A response message after deleting the task.
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
-    public void execute() throws ViktorException {
+    public String execute() throws ViktorException {
         if (taskNumber >= tasks.size()) {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
-        System.out.println(UI.CURLY_START + "I guess "+ tasks.getTask(taskNumber).getDescription() 
-                + " is no longer your concern." + "\n");
-        tasks.removeTask(taskNumber);
-        System.out.println("Now you have " + tasks.size() + " remaining tasks." + UI.CURLY_END);
 
+        String taskDescription = tasks.getTask(taskNumber).getDescription();
+        tasks.removeTask(taskNumber);
+        
+        String response =  "I guess " + taskDescription + " is no longer your concern.\n" +
+                          "Now you have " + tasks.size() + " remaining tasks." ;
+
+        // Save the updated task list
         try {
-                Storage.save(tasks);
+            Storage.save(tasks);
         } catch (IOException e) {
-            System.out.println("Ah something must've gone awry: " + e.getMessage() 
-                    + " Well, mistakes are but a part of progress.");
+            response += "\nAh, something must've gone awry: " + e.getMessage() + 
+                        " Well, mistakes are but a part of progress.";
         }
+
+        return response;  // Return the final response
     }
 }

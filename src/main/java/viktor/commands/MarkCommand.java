@@ -6,7 +6,6 @@ import viktor.exceptions.ViktorException;
 import viktor.storage.Storage;
 
 import viktor.tasks.TaskList;
-import viktor.ui.UI;
 
 /**
  * Command to mark a task as done.
@@ -32,19 +31,21 @@ public class MarkCommand implements Commandable {
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
-    public void execute() throws ViktorException {
+    public String execute() throws ViktorException {
         if (taskNumber >= tasks.size()) {
             throw new ViktorException("You're asking for the impossible! That task doesn't exist.");
         }
         tasks.getTask(taskNumber).beDone();
-        System.out.println(UI.CURLY_START + "You've just finished " + tasks.getTask(taskNumber).getDescription()
-                            + "! True progress is still far away but a bit less further now!" + UI.CURLY_END);
+        String response =  "You've just finished " + tasks.getTask(taskNumber).getDescription()
+            + "! True progress is still far away but a bit less further now!" ; 
+        
         try {
             Storage.save(tasks);
         } catch (IOException e) {
             System.out.println("Ah something must've gone awry: " + e.getMessage() 
                     + " Well, mistakes are but a part of progress.");
         }
+        return response;
     }
 }
 

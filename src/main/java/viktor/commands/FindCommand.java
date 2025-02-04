@@ -3,8 +3,6 @@ package viktor.commands;
 import viktor.exceptions.ViktorException;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
-import viktor.ui.UI;
-
 
 public class FindCommand implements Commandable {
     private TaskList tasks;
@@ -16,23 +14,24 @@ public class FindCommand implements Commandable {
     }
 
     @Override
-    public void execute() throws ViktorException {
-
+    public String execute() throws ViktorException {
         boolean found = false;
-        System.out.println( UI.CURLY_START + "Here are your tasks matching " + nameInput + ":\n");
+        StringBuilder response = new StringBuilder( "Here are your tasks matching \"" + nameInput + "\":\n");
 
         for (Task task : tasks.getTasks()) {
-            if ((task.getDescription().contains(nameInput))) {
-                System.out.println(task);
+            if (task.getDescription().contains(nameInput)) {
+                response.append(task).append("\n");
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("Vast emptiness is all there is" + nameInput 
-                + "? I haven't heard of that in a long, long time. There are no tasks matching " + nameInput + "!" );
+            response.append("Vast emptiness is all there is. \"").append(nameInput)
+                    .append("\"? I haven't heard of that in a long, long time. ")
+                    .append("There are no tasks matching \"").append(nameInput).append("\"!");
         }
 
-        System.out.println(UI.CURLY_END);
+        response.append("\n");
+        return response.toString();
     }
 }

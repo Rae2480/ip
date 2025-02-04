@@ -1,21 +1,15 @@
 package viktor.commands;
 
 import java.io.IOException;
-import java.time.format.DateTimeParseException;
-
 import java.util.Random;
 
 import viktor.exceptions.ViktorException;
-
 import viktor.storage.Storage;
-
 import viktor.tasks.Deadline;
 import viktor.tasks.Event;
 import viktor.tasks.TaskList;
 import viktor.tasks.TaskType;
 import viktor.tasks.Todo;
-
-import viktor.ui.UI;
 
 /**
  * Command to add a task to the task list based on user input.
@@ -60,7 +54,7 @@ public class AddTaskCommand implements Commandable {
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
-    public void execute() throws ViktorException {
+    public String execute() throws ViktorException {
         String[] words = userInput.split(" ");
         TaskType taskType = TaskType.valueOf(words[0].toUpperCase());
 
@@ -83,13 +77,9 @@ public class AddTaskCommand implements Commandable {
             if (parts.length != 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
                 throw new ViktorException("When's the deadline? Please focus, when is it due!!");
             }
-            try {
-                Deadline deadline = new Deadline(parts[0].trim(), parts[1].trim());
-                taskList.addTask(deadline); 
-                output = deadline.getDescription();
-            } catch (DateTimeParseException e) {
-                throw new ViktorException("I cannot understand that date format! E.g., '2/12/2025 1830'.");
-            }
+            Deadline deadline = new Deadline(parts[0].trim(), parts[1].trim());
+            taskList.addTask(deadline);
+            output = deadline.getDescription();
             break;
 
         case EVENT:
@@ -101,30 +91,24 @@ public class AddTaskCommand implements Commandable {
             if (timeParts.length < 2) {
                 throw new ViktorException("Invalid event input! Please provide both start and end times.");
             }
-            try {
-                Event event = new Event(eventParts[0].trim(), timeParts[0].trim(), timeParts[1].trim());
-                taskList.addTask(event); 
-                output = event.getDescription();
-            } catch (DateTimeParseException e) {
-                throw new ViktorException("I cannot understand that date format! Use 'd/M/yyyy h:mm a', e.g., '2/12/2019 6:00 PM'.");
-            }
+            Event event = new Event(eventParts[0].trim(), timeParts[0].trim(), timeParts[1].trim());
+            taskList.addTask(event);
+            output = event.getDescription();
             break;
 
         default:
             throw new ViktorException("Unknown command type.");
         }
 
-        if (isBeingTested) {
-            System.out.println(UI.CURLY_START + testingResponse + " " + output + UI.CURLY_END);
-        } else {
-            String response = responses[random.nextInt(responses.length)];
-            System.out.println(UI.CURLY_START + response + " " + output + "." + UI.CURLY_END);
+        String response = isBeingTested ? testingResponse : responses[random.nextInt(responses.length)];
+        
+        try {
+            Storage.save(taskList);
+        } catch (IOException e) {
+            return "An error occurred while saving tasks: " + e.getMessage();
         }
 
-        try {
-            Storage.save(taskList); 
-        } catch (IOException e) {
-            System.out.println("An error occurred while saving tasks: " + e.getMessage());
-        }
+        return  response + " " + output + "." ;
     }
+
 }
