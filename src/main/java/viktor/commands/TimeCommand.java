@@ -11,7 +11,6 @@ import viktor.tasks.Deadline;
 import viktor.tasks.Event;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
-import viktor.ui.UI;
 
 /**
  * Command to list all tasks on a specific date.
@@ -37,7 +36,7 @@ public class TimeCommand implements Commandable {
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
-    public void execute() throws ViktorException {
+    public String execute() throws ViktorException {
         LocalDate targetDate;
 
         try {
@@ -47,22 +46,21 @@ public class TimeCommand implements Commandable {
         }
 
         boolean found = false;
-        System.out.println( UI.CURLY_START +
+        StringBuilder response = new StringBuilder(
                 "Here are your tasks for " + DateParser.formatDate(targetDate) + ":\n");
-
+        
         for (Task task : tasks.getTasks()) {
             if ((task instanceof Deadline && ((Deadline) task).matchesDate(targetDate)) ||
                 (task instanceof Event && ((Event) task).matchesDate(targetDate))) {
-                System.out.println(task);
+                response.append(task);
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("Are you truly a scientist? There are no tasks for " 
-                + DateParser.formatDate(targetDate) + "!" );
+            return "Are you truly a scientist? There are no tasks for " 
+                + DateParser.formatDate(targetDate) + "!";
         }
-
-        System.out.println(UI.CURLY_END);
+        return response.toString();
     }
 }

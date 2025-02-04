@@ -3,7 +3,6 @@ package viktor.ui;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import viktor.commands.ByeCommand;
 import viktor.commands.Commandable;
 import viktor.exceptions.ViktorException;
 import viktor.parser.Parser;
@@ -21,39 +20,31 @@ public class Viktor {
         ui = new UI();
         taskList = new TaskList();
         parser = new Parser();
-    }
-
-    public void start() {
-        String userInput;
-        ui.showWelcomeMessage();
 
         try {
             ArrayList<Task> loadedTasks = Storage.load(); 
-            taskList.setTasks(loadedTasks); 
+            taskList.setTasks(loadedTasks);
         } catch (IOException e) {
-            System.out.println("Are you ready to put science first and put yourself to the text?");
+            System.out.println("Are you ready to put science first and put yourself to the test?");
         }
-
-        while (true) {
-            userInput = ui.readCommand();
-            try {
-                Commandable command = parser.parse(userInput, taskList, true); 
-                command.execute();
-                if (command instanceof ByeCommand) {
-                    break; 
-                }
-            } catch (ViktorException e) {
-                ui.showErrorMessage(e.getMessage());
-            } catch (Exception e) {
-                ui.showErrorMessage("Something went wrong! Very wrong! Hextech is alive!");
-            }
-        }
-
-        ui.closeScanner();
     }
 
-    public static void main(String[] args) {
-        Viktor viktor = new Viktor();
-        viktor.start();
+    public String getWelcomeMessage() {
+        return ui.getWelcomeMessage();
+    }
+
+    public String getStartMessage() {
+        return ui.getStartMessage();
+    }
+
+    public String getResponse(String input) {
+        try {
+            Commandable command = parser.parse(input, taskList, true);
+            return command.execute();
+        } catch (ViktorException e) {
+            return e.getMessage();
+        } catch (Exception e) {
+            return "Something went wrong! Very wrong! Hextech is alive!";
+        }
     }
 }
