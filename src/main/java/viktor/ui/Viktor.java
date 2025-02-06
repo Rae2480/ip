@@ -37,6 +37,10 @@ public class Viktor {
         }
     }
 
+    public void reset() {
+        taskList.clear(); // Clear the current task list
+    }
+
     public String getWelcomeMessage() {
         return ui.getWelcomeMessage();
     }
@@ -48,7 +52,7 @@ public class Viktor {
 
     public String getResponse(String input) {
         try {
-            Commandable command = parser.parse(input, taskList, true);
+            Commandable command = parser.parse(input, taskList, false);
             return command.execute();
         } catch (ViktorException e) {
             return e.getMessage();

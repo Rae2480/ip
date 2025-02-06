@@ -18,7 +18,7 @@ import viktor.tasks.Todo;
  * Handles the storage of tasks to and from a file.
  */
 public class Storage {
-    private static final String FILE_PATH = "./ip/data/viktor.txt";
+    public static final String FILE_PATH = "./ip/data/viktor.txt";
 
     /**
      * Saves the tasks from the TaskList to a file.

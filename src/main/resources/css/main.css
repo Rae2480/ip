@@ -14,7 +14,7 @@
 
 /* Header label styling */
 .header-label {
-    -fx-font-family: "Comic Sans MS", cursive;  /* Set font to Comic Sans */
+    -fx-font-family: "Times New Roman", Times, serif;  
     -fx-font-weight: bold;  /* Make the font bold */
     -fx-text-fill: main-color;  /* Set the color to main-color */
     -fx-font-size: 25px;  /* Set font size */

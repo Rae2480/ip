@@ -91,4 +91,16 @@ public class MainWindow extends AnchorPane {
         );
         userInput.clear();
     }
+
+    public void resetFirstLaunch() {
+        isFirstLaunch = true; // Reset first launch flag to true
+    }
+
+    /**
+     * Resets the UI by clearing the dialog container and reinitializing Viktor.
+     */
+    public void resetUI() {
+        dialogContainer.getChildren().clear(); // Clear the dialog container
+        setViktor(viktor); // Reinitialize Viktor and show the welcome message again
+    }
 }

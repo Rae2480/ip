@@ -69,14 +69,14 @@ public class AddTaskCommand implements Commandable {
             output = todo.getDescription();
             break;
 
-        case DeadlineTask:
+        case DEADLINE:
             String[] parts = taskDescription.split("/by");
             if (parts.length != 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
                 throw new ViktorException("When's the DeadlineTask? Please focus, when is it due!!");
             }
-            DeadlineTask deadlineTask = new DeadlineTask(parts[0].trim(), parts[1].trim());
-            taskList.addTask(deadlineTask);
-            output = deadlineTask.getDescription();
+            DeadlineTask deadline = new DeadlineTask(parts[0].trim(), parts[1].trim());
+            taskList.addTask(deadline);
+            output = deadline.getDescription();
             break;
 
         case EVENT:

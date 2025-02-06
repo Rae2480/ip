@@ -6,14 +6,14 @@ import java.time.LocalDateTime;
 import viktor.parser.DateParser;
 
 /**
- * Represents an DeadlineTask task with a description, and due time
+ * Represents an Deadline task with a description, and due time
  */
 public class DeadlineTask extends Task {
     private final String type;
     private final LocalDateTime by;
 
     /**
-     * Constructs a DeadlineTask task with a description and due date.
+     * Constructs a Deadline task with a description and due date.
      *
      * @param description The description of the task.
      * @param by The due date of the task in string format.
@@ -45,7 +45,7 @@ public class DeadlineTask extends Task {
     }
 
     /**
-     * Returns a string representation of the DeadlineTask task.
+     * Returns a string representation of the Deadline task.
      *
      * @return The string representation of the task.
      */
@@ -56,7 +56,7 @@ public class DeadlineTask extends Task {
     }
 
     /**
-     * Returns the string format for saving the DeadlineTask task.
+     * Returns the string format for saving the Deadline task.
      *
      * @return The formatted string for saving the task.
      */

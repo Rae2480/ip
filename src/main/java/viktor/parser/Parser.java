@@ -7,6 +7,7 @@ import viktor.commands.DeleteTaskCommand;
 import viktor.commands.FindCommand;
 import viktor.commands.ListCommand;
 import viktor.commands.MarkCommand;
+import viktor.commands.ResetCommand;
 import viktor.commands.TimeCommand;
 import viktor.commands.UnmarkCommand;
 import viktor.exceptions.ViktorException;
@@ -83,6 +84,9 @@ public class Parser {
 
         case "BYE":
             return new ByeCommand();
+
+        case "RESET":
+            return new ResetCommand(tasks);
 
         case "TIME":
             if (words.length < 2) {

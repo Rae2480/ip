@@ -79,4 +79,11 @@ public class TaskList {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+    /**
+     * Clears the task list, removing all tasks.
+     */
+    public void clear() {
+        tasks.clear();
+    }
 }

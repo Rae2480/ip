@@ -1,3 +1,5 @@
-T |   | read book
 T |   | invent hextech
-D |   | sesbian lex | Apr. 3 1845, 17:30
+E |   | meeting with heimerdinger | Feb. 12 2025, 18:30 | Feb. 12 2025, 21:30
+D | X | lunch with mel | Feb. 8 2025, 12:45
+T |   | prepare speech about innovation
+T |   | practice speech
