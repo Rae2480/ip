@@ -11,7 +11,7 @@ public class ListCommand implements Commandable {
 
     /**
      * Constructs the ListCommand with task list.
-     * 
+     *
      * @param taskList The list of tasks.
      */
     public ListCommand(TaskList tasks) {
@@ -20,7 +20,7 @@ public class ListCommand implements Commandable {
 
     /**
      * Executes the command to list all tasks in the task list.
-     * 
+     *
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
@@ -28,11 +28,11 @@ public class ListCommand implements Commandable {
         if (tasks.isEmpty()) {
             return "No tasks added yet!";
         } else {
-            StringBuilder response = new StringBuilder( "Your tasks await you: \n");
+            StringBuilder response = new StringBuilder("Your tasks await you: \n");
             for (int i = 0; i < tasks.size(); i++) {
-                response.append((i + 1) + ". " + tasks.getTask(i));
+                response.append((i + 1) + ". " + tasks.getTask(i)).append("\n");
             }
-            response.append('\n' + "Currently, you have " + tasks.size() + " tasks in the list." );
+            response.append('\n' + "Currently, you have " + tasks.size() + " tasks in the list.");
             return response.toString();
         }
     }

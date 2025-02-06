@@ -4,20 +4,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import viktor.tasks.Deadline;
+import viktor.tasks.DeadlineTask;
 import viktor.tasks.Event;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
 import viktor.tasks.Todo;
 
 
+/**
+ * Handles the storage of tasks to and from a file.
+ */
 public class Storage {
     private static final String FILE_PATH = "./ip/data/viktor.txt";
 
+    /**
+     * Saves the tasks from the TaskList to a file.
+     *
+     * @param taskList The list of tasks to be saved.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void save(TaskList taskList) throws IOException {
         File f = new File(FILE_PATH);
         f.getParentFile().mkdirs();
@@ -34,6 +42,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads the tasks from the file.
+     *
+     * @return A list of tasks loaded from the file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static ArrayList<Task> load() throws IOException {
         File f = new File(FILE_PATH);
         ArrayList<Task> tasks = new ArrayList<>();
@@ -48,7 +62,7 @@ public class Storage {
                         tasks.get(tasks.size() - 1).beDone();
                     }
                 } else if (parts[0].equals("D")) {
-                    tasks.add(new Deadline(parts[2], parts[3]));
+                    tasks.add(new DeadlineTask(parts[2], parts[3]));
                     if (parts[1].equals("X")) {
                         tasks.get(tasks.size() - 1).beDone();
                     }

@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
 /**
  * Controller for the main GUI.
  */
@@ -43,7 +44,7 @@ public class MainWindow extends AnchorPane {
         viktor = v;
 
         // Set the header label for the chatbot's name
-        headerLabel.setText("viktor");  // Assuming Viktor has a method getName() to retrieve the name
+        headerLabel.setText("viktor"); // Assuming Viktor has a method getName() to retrieve the name
 
         if (isFirstLaunch) {
             // Show welcome message on first launch

@@ -8,17 +8,17 @@ public class Todo extends Task {
 
     /**
      * Constructs a Todo task with a description.
-     * 
+     *
      * @param description The description of the task.
      */
     public Todo(String description) {
         super(description);
         this.type = "T";
     }
-    
+
     /**
      * Returns the type of the task.
-     * 
+     * \
      * @return The task type as a string.
      */
     @Override
@@ -28,7 +28,7 @@ public class Todo extends Task {
 
     /**
      * Returns a string representation of the todo task.
-     * 
+     *
      * @return The string representation of the task.
      */
     @Override
@@ -38,7 +38,7 @@ public class Todo extends Task {
 
     /**
      * Returns the string format for saving the todo task.
-     * 
+     *
      * @return The formatted string for saving the task.
      */
     @Override

@@ -6,7 +6,7 @@
 
 // A chatbot resembling the mannerisms of Viktor from the hit netflix series Arcane.
 
-## Adding deadlines
+## Adding DeadlineTasks
 
 // Describe the action and its outcome.
 

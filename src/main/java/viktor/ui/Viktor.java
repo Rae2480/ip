@@ -7,22 +7,30 @@ import viktor.commands.Commandable;
 import viktor.exceptions.ViktorException;
 import viktor.parser.Parser;
 import viktor.storage.Storage;
-import viktor.tasks.TaskList;
 import viktor.tasks.Task;
+import viktor.tasks.TaskList;
 
+/**
+ * The Viktor class represents the main class for the Viktor application.
+ * It initializes the UI, task list, and parser, and handles the loading of tasks from storage.
+ */
 public class Viktor {
 
     private UI ui;
     private TaskList taskList;
     private Parser parser;
 
+    /**
+     * Constructs a new Viktor instance, initializing the UI, task list, and parser.
+     * Loads tasks from storage and sets them in the task list.
+     */
     public Viktor() {
         ui = new UI();
         taskList = new TaskList();
         parser = new Parser();
 
         try {
-            ArrayList<Task> loadedTasks = Storage.load(); 
+            ArrayList<Task> loadedTasks = Storage.load();
             taskList.setTasks(loadedTasks);
         } catch (IOException e) {
             System.out.println("Are you ready to put science first and put yourself to the test?");

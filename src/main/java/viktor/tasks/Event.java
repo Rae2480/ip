@@ -1,6 +1,8 @@
 package viktor.tasks;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import viktor.parser.DateParser;
 
 /**
@@ -13,7 +15,7 @@ public class Event extends Task {
 
     /**
      * Constructs a Event task with a description, start and end date.
-     * 
+     *
      * @param description The description of the task.
      * @param from The start date of the task in string format.
      * @param to The end date of the task in string format.
@@ -27,7 +29,7 @@ public class Event extends Task {
 
     /**
      * Returns the type of the task.
-     * 
+     *
      * @return The task type as a string.
      */
     @Override
@@ -36,10 +38,10 @@ public class Event extends Task {
     }
 
     /**
-     * Checks if the task's time range includes the given date.
-     * 
-     * @param targetDate The target date to compare against.
-     * @return True if the target date is within the event's time range, false otherwise.
+     * Checks if the event matches the given date.
+     *
+     * @param targetTime The date to check against the event's date range.
+     * @return true if the event is on the given date, false otherwise.
      */
     public boolean matchesDate(LocalDate targetTime) {
         LocalDate targetDate = targetTime;
@@ -48,22 +50,23 @@ public class Event extends Task {
 
     /**
      * Returns a string representation of the event task.
-     * 
+     *
      * @return The string representation of the task.
      */
     @Override
     public String toString() {
-        return "[" + getType() + "][" + getStatusIcon()+ "] " + super.toString() + " (from: " + DateParser.formatDateTime(from) + " to: " + DateParser.formatDateTime(to) + ")";
+        return "[" + getType() + "][" + getStatusIcon() + "] " + super.toString()
+            + " (from: " + DateParser.formatDateTime(from) + " to: " + DateParser.formatDateTime(to) + ")";
     }
 
     /**
      * Returns the string format for saving the event task.
-     * 
+     *
      * @return The formatted string for saving the task.
      */
     @Override
     public String toSave() {
-        return getType() + " | " + getStatusIcon() + " | " + description + " | " + DateParser.formatDateTime(from) + " | " + DateParser.formatDateTime(to);
+        return getType() + " | " + getStatusIcon() + " | " + description + " | "
+            + DateParser.formatDateTime(from) + " | " + DateParser.formatDateTime(to);
     }
-    
 }

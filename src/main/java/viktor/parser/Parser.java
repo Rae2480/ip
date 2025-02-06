@@ -3,13 +3,12 @@ package viktor.parser;
 import viktor.commands.AddTaskCommand;
 import viktor.commands.ByeCommand;
 import viktor.commands.Commandable;
-import viktor.commands.DeleteTaskComma;
+import viktor.commands.DeleteTaskCommand;
 import viktor.commands.FindCommand;
 import viktor.commands.ListCommand;
 import viktor.commands.MarkCommand;
 import viktor.commands.TimeCommand;
 import viktor.commands.UnmarkCommand;
-
 import viktor.exceptions.ViktorException;
 import viktor.tasks.TaskList;
 
@@ -34,7 +33,7 @@ public class Parser {
             }
             try {
                 int taskNumber = Integer.parseInt(words[1]);
-                return new DeleteTaskComma(taskNumber - 1, tasks); 
+                return new DeleteTaskCommand(taskNumber - 1, tasks);
             } catch (NumberFormatException e) {
                 throw new ViktorException("Invalid task number for deletion.");
             }
@@ -45,7 +44,7 @@ public class Parser {
             }
             try {
                 int taskNumber = Integer.parseInt(words[1]);
-                return new MarkCommand(taskNumber - 1, tasks); 
+                return new MarkCommand(taskNumber - 1, tasks);
             } catch (NumberFormatException e) {
                 throw new ViktorException("Invalid task number to mark.");
             }
@@ -56,7 +55,7 @@ public class Parser {
             }
             try {
                 int taskNumber = Integer.parseInt(words[1]);
-                return new UnmarkCommand(taskNumber - 1, tasks); 
+                return new UnmarkCommand(taskNumber - 1, tasks);
             } catch (NumberFormatException e) {
                 throw new ViktorException("Invalid task number to unmark.");
             }

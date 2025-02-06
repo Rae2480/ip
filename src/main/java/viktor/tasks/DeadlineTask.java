@@ -1,25 +1,24 @@
 package viktor.tasks;
 
-import java.time.LocalDateTime;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import viktor.parser.DateParser;
 
-
 /**
- * Represents an deadline task with a description, and due time
+ * Represents an DeadlineTask task with a description, and due time
  */
-public class Deadline extends Task {
+public class DeadlineTask extends Task {
     private final String type;
     private final LocalDateTime by;
 
     /**
-     * Constructs a Deadline task with a description and due date.
-     * 
+     * Constructs a DeadlineTask task with a description and due date.
+     *
      * @param description The description of the task.
      * @param by The due date of the task in string format.
      */
-    public Deadline(String description, String by) {
+    public DeadlineTask(String description, String by) {
         super(description);
         this.type = "D";
         this.by = DateParser.parseDateTime(by);;
@@ -27,7 +26,7 @@ public class Deadline extends Task {
 
     /**
      * Returns the type of the task.
-     * 
+     *
      * @return The task type as a string.
      */
     @Override
@@ -37,7 +36,7 @@ public class Deadline extends Task {
 
     /**
      * Checks if the task matches the given date.
-     * 
+     *
      * @param targetDate The target date to compare against.
      * @return True if the task's due date matches the target date, false otherwise.
      */
@@ -46,18 +45,19 @@ public class Deadline extends Task {
     }
 
     /**
-     * Returns a string representation of the deadline task.
-     * 
+     * Returns a string representation of the DeadlineTask task.
+     *
      * @return The string representation of the task.
      */
     @Override
     public String toString() {
-        return "[" + getType() + "][" + getStatusIcon() + "] " + super.toString() + " (by: " + DateParser.formatDateTime(by) + ")";
+        return "[" + getType() + "][" + getStatusIcon() + "] " + super.toString()
+            + " (by: " + DateParser.formatDateTime(by) + ")";
     }
 
     /**
-     * Returns the string format for saving the deadline task.
-     * 
+     * Returns the string format for saving the DeadlineTask task.
+     *
      * @return The formatted string for saving the task.
      */
     @Override

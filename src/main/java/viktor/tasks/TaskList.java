@@ -18,7 +18,7 @@ public class TaskList {
 
     /**
      * Adds a task to the list.
-     * 
+     *
      * @param task The task to add.
      */
     public void addTask(Task task) {
@@ -27,7 +27,7 @@ public class TaskList {
 
     /**
      * Removes a task from the list by its index.
-     * 
+     *
      * @param index The index of the task to remove.
      */
     public void removeTask(int index) {
@@ -36,7 +36,7 @@ public class TaskList {
 
     /**
      * Returns the task at the specified index.
-     * 
+     *
      * @param index The index of the task to retrieve.
      * @return The task at the specified index.
      */
@@ -44,9 +44,9 @@ public class TaskList {
         return tasks.get(index);
     }
 
-     /**
+    /**
      * Returns the number of tasks in the list.
-     * 
+     *
      * @return The number of tasks.
      */
     public int size() {
@@ -55,7 +55,7 @@ public class TaskList {
 
     /**
      * Returns the list of tasks.
-     * 
+     *
      * @return The list of tasks.
      */
     public List<Task> getTasks() {
@@ -64,7 +64,7 @@ public class TaskList {
 
     /**
      * Checks if the task list is empty.
-     * 
+     *
      * @return True if the list has no tasks, false otherwise.
      */
     public boolean isEmpty() {
@@ -73,11 +73,10 @@ public class TaskList {
 
     /**
      * Sets the list of tasks.
-     * 
+     *
      * @param tasks The list of tasks to set.
      */
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
-    
 }

@@ -1,13 +1,11 @@
 package viktor.commands;
 
 import java.time.LocalDate;
-
 import java.time.format.DateTimeParseException;
+
 import viktor.exceptions.ViktorException;
-
 import viktor.parser.DateParser;
-
-import viktor.tasks.Deadline;
+import viktor.tasks.DeadlineTask;
 import viktor.tasks.Event;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
@@ -21,7 +19,7 @@ public class TimeCommand implements Commandable {
 
     /**
      * Constructs a TimeCommand with the given TaskList and date input.
-     * 
+     *
      * @param tasks The TaskList to search for tasks.
      * @param dateInput The date to search for tasks on.
      */
@@ -32,7 +30,7 @@ public class TimeCommand implements Commandable {
 
     /**
      * Executes the command to list all tasks on the specified date.
-     * 
+     *
      * @throws ViktorException If the input is invalid or there is an error with task creation.
      */
     @Override
@@ -45,20 +43,19 @@ public class TimeCommand implements Commandable {
             throw new ViktorException("Invalid date format! Use 'd/M/yyyy', e.g., '12/12/2025'.");
         }
 
-        boolean found = false;
+        boolean isFound = false;
         StringBuilder response = new StringBuilder(
                 "Here are your tasks for " + DateParser.formatDate(targetDate) + ":\n");
-        
         for (Task task : tasks.getTasks()) {
-            if ((task instanceof Deadline && ((Deadline) task).matchesDate(targetDate)) ||
-                (task instanceof Event && ((Event) task).matchesDate(targetDate))) {
-                response.append(task);
-                found = true;
+            if ((task instanceof DeadlineTask && ((DeadlineTask) task).matchesDate(targetDate))
+                    || (task instanceof Event && ((Event) task).matchesDate(targetDate))) {
+                response.append(task).append("\n");
+                isFound = true;
             }
         }
 
-        if (!found) {
-            return "Are you truly a scientist? There are no tasks for " 
+        if (!isFound) {
+            return "Are you truly a scientist? There are no tasks for "
                 + DateParser.formatDate(targetDate) + "!";
         }
         return response.toString();

@@ -1,5 +1,5 @@
 add todo invent hextech
-add deadline convince mel for funding /by 3/4/1845 1730
+add DeadlineTask convince mel for funding /by 3/4/1845 1730
 mark 2
 list
 unmark 2

@@ -9,7 +9,7 @@ public abstract class Task {
 
     /**
      * Constructs a task with a description.
-     * 
+     *
      * @param description The description of the task.
      */
     public Task(String description) {
@@ -33,14 +33,14 @@ public abstract class Task {
 
     /**
      * Returns the type of the task (to be implemented by subclasses).
-     * 
+     *
      * @return The task type as a string.
      */
     public abstract String getType();
 
     /**
      * Returns the description of the task.
-     * 
+     *
      * @return The description of the task.
      */
     public String getDescription() {
@@ -49,7 +49,7 @@ public abstract class Task {
 
     /**
      * Returns the status icon of the task based on whether it's done or not.
-     * 
+     *
      * @return "X" if the task is done, " " (empty space) if not done.
      */
     public String getStatusIcon() {
@@ -58,7 +58,7 @@ public abstract class Task {
 
     /**
      * Returns a string representation of the task.
-     * 
+     *
      * @return The description of the task.
      */
     @Override
@@ -68,7 +68,7 @@ public abstract class Task {
 
     /**
      * Returns the string format for saving the task (to be implemented by subclasses).
-     * 
+     *
      * @return The formatted string for saving the task.
      */
     public abstract String toSave();

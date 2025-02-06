@@ -4,10 +4,19 @@ import viktor.exceptions.ViktorException;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
 
+/**
+ * Represents a command to find tasks by their description.
+ */
 public class FindCommand implements Commandable {
     private TaskList tasks;
     private String nameInput;
 
+    /**
+     * Constructs a FindCommand with the specified task list and name input.
+     *
+     * @param tasks The list of tasks to search through.
+     * @param nameInput The input string to search for in task descriptions.
+     */
     public FindCommand(TaskList tasks, String nameInput) {
         this.tasks = tasks;
         this.nameInput = nameInput;
@@ -16,7 +25,7 @@ public class FindCommand implements Commandable {
     @Override
     public String execute() throws ViktorException {
         boolean found = false;
-        StringBuilder response = new StringBuilder( "Here are your tasks matching \"" + nameInput + "\":\n");
+        StringBuilder response = new StringBuilder("Here are your tasks matching \"" + nameInput + "\":\n");
 
         for (Task task : tasks.getTasks()) {
             if (task.getDescription().contains(nameInput)) {
