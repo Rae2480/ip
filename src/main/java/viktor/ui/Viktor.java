@@ -33,7 +33,7 @@ public class Viktor {
             ArrayList<Task> loadedTasks = Storage.load();
             taskList.setTasks(loadedTasks);
         } catch (IOException e) {
-            System.out.println("Are you ready to put science first and put yourself to the test?");
+            System.out.println("Welcome to Viktor Chatbot!");
         }
     }
 
@@ -44,6 +44,7 @@ public class Viktor {
     public String getStartMessage() {
         return ui.getStartMessage();
     }
+
 
     public String getResponse(String input) {
         try {

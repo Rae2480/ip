@@ -14,8 +14,20 @@ import viktor.tasks.TaskList;
 
 
 
+/**
+ * The Parser class is responsible for interpreting user input and returning the appropriate command.
+ */
 public class Parser {
 
+    /**
+     * Parses the user input and returns the appropriate command.
+     *
+     * @param userInput The input string from the user.
+     * @param tasks The list of tasks.
+     * @param isBeingTested A flag indicating if the application is being tested.
+     * @return The command corresponding to the user input.
+     * @throws ViktorException If the user input is invalid.
+     */
     public Commandable parse(String userInput, TaskList tasks, boolean isBeingTested) throws ViktorException {
         String[] words = userInput.split(" ", 2);
         String commandWord = words[0];
