@@ -1,5 +1,5 @@
 T |   | invent hextech
-E |   | meeting with heimerdinger | Feb. 12 2025, 18:30 | Feb. 12 2025, 21:30
+E | X | meeting with heimerdinger | Feb. 12 2025, 18:30 | Feb. 12 2025, 21:30
 T |   | prepare speech about innovation
 T |   | practice speech
 T | X | lunch with jayce
