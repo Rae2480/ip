@@ -1,18 +1,20 @@
 package viktor.commands;
 
+import java.util.stream.IntStream;
+
 import viktor.exceptions.ViktorException;
 import viktor.tasks.TaskList;
 
 /**
- * Command to list all task in the task list.
+ * Command to list all tasks in the task list.
  */
 public class ListCommand implements Commandable {
     private TaskList tasks;
 
     /**
-     * Constructs the ListCommand with task list.
+     * Constructs the ListCommand with a task list.
      *
-     * @param taskList The list of tasks.
+     * @param tasks The list of tasks.
      */
     public ListCommand(TaskList tasks) {
         this.tasks = tasks;
@@ -27,13 +29,14 @@ public class ListCommand implements Commandable {
     public String execute() throws ViktorException {
         if (tasks.isEmpty()) {
             return "No tasks added yet!";
-        } else {
-            StringBuilder response = new StringBuilder("Your tasks await you: \n");
-            for (int i = 0; i < tasks.size(); i++) {
-                response.append((i + 1) + ". " + tasks.getTask(i).toString() + "\n");
-            }
-            response.append('\n' + "Currently, you have " + tasks.size() + " tasks in the list.");
-            return response.toString();
         }
+
+        String taskListString = IntStream.range(0, tasks.size())
+            .mapToObj(i -> (i + 1) + ". " + tasks.getTask(i).toString())
+            .reduce((a, b) -> a + "\n" + b)
+            .orElse("");
+
+        return "Your tasks await you:\n" + taskListString
+                + "\n\nCurrently, you have " + tasks.size() + " tasks in the list.";
     }
 }
