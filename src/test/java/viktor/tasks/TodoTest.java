@@ -29,7 +29,7 @@ class TodoTest {
     @Test
     void testToString() {
         Todo todo = new Todo("Test task");
-        assertEquals("[T] Test task", todo.toString(), "toString should return the correct string format.");
+        assertEquals("[T][ ] Test task", todo.toString(), "toString should return the correct string format.");
     }
 
     @Test
