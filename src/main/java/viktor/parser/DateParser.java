@@ -24,19 +24,45 @@ public class DateParser {
      */
     public static LocalDateTime parseDateTime(String dateTimeStr) throws DateTimeParseException {
         try {
-            return LocalDateTime.parse(dateTimeStr, INPUT_FORMATTER);
+            LocalDateTime dateTime = LocalDateTime.parse(dateTimeStr, INPUT_FORMATTER);
+            assert dateTime != null : "DateTime is null for parseDateTime";
+            return dateTime;
         } catch (DateTimeParseException e) {
             return LocalDateTime.parse(dateTimeStr, ALTERNATIVE_FORMATTER);
         }
     }
+
+
+    /**
+     * Formats a LocalDateTime object into a string with the format MMM d yyyy, HH:mm.
+     *
+     * @param dateTime the LocalDateTime object to format
+     * @return the formatted string
+     */
     public static String formatDateTime(LocalDateTime dateTime) {
+        assert dateTime != null : "DateTime is null for formatDateTime";
         return dateTime.format(OUTPUT_FORMATTER);
     }
 
+    /**
+     * Parses a date string into a LocalDate object.
+     *
+     * @param dateInput the date string to parse
+     * @return the parsed LocalDate object
+     * @throws DateTimeParseException if the date string cannot be parsed
+     */
     public static LocalDate parseDateOnly(String dateInput) throws DateTimeParseException {
-        return LocalDate.parse(dateInput, INPUT_DATE_FORMATTER);
+        LocalDate date = LocalDate.parse(dateInput, INPUT_DATE_FORMATTER);
+        assert date != null : "Date is null for parseDateOnly";
+        return date;
     }
 
+    /**
+     * Formats a LocalDate object into a string with the format MMM d yyyy.
+     *
+     * @param date the LocalDate object to format
+     * @return the formatted string
+     */
     public static String formatDate(LocalDate date) {
         return date.format(OUTPUT_DATE_FORMATTER);
     }
