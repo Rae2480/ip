@@ -54,11 +54,17 @@ public class AddTaskCommand implements Commandable {
     public String execute() throws ViktorException {
         String[] words = userInput.split(" ");
         TaskType taskType = TaskType.valueOf(words[0].toUpperCase());
+        String description;
+        String dueDate;
+        String fromDate;
+        String toDate;
 
+        // Throws an exception if user inputs "add" without a event type, description (and more)
         if (words.length < 2) {
-            throw new ViktorException("There's something you're not telling me!");
+            throw new ViktorException("Tell me more about your task!");
         }
 
+        // Extracts the description from the user input
         String taskDescription = userInput.substring(words[0].length()).trim();
         String output = "";
 
@@ -71,24 +77,37 @@ public class AddTaskCommand implements Commandable {
 
         case DEADLINE:
             String[] parts = taskDescription.split("by");
-            if (parts.length != 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
-                throw new ViktorException("When's the DeadlineTask? Please focus, when is it due!!");
+            description = parts[0].trim();
+            dueDate = parts[1].trim();
+            if (parts.length > 2) {
+                throw new ViktorException("Something's wrong! Don't you know what a deadline is?.");
+            } else if (description.isEmpty()) {
+                throw new ViktorException("Please provide a description of this deadline task!");
+            } else if (dueDate.isEmpty()) {
+                throw new ViktorException("When's the deadline? Please focus, when is it due!");
             }
-            DeadlineTask deadline = new DeadlineTask(parts[0].trim(), parts[1].trim());
+            DeadlineTask deadline = new DeadlineTask(description, dueDate);
             taskList.addTask(deadline);
             output = deadline.getDescription();
             break;
 
         case EVENT:
             String[] eventParts = taskDescription.split("from", 2);
-            if (eventParts.length < 2) {
-                throw new ViktorException("Invalid event! You have to give me some details.");
+            description = eventParts[0].trim();
+            if (description.isEmpty()) {
+                throw new ViktorException("You have to tell me what the event is!");
+            } else if (eventParts[1].trim().isEmpty()) {
+                throw new ViktorException("Invalid event! Please provide both start and end times.");
             }
             String[] timeParts = eventParts[1].split("to", 2);
-            if (timeParts.length < 2) {
-                throw new ViktorException("Invalid event input! Please provide both start and end times.");
+            fromDate = timeParts[0].trim();
+            toDate = timeParts[1].trim();
+            if (fromDate.isEmpty()) {
+                throw new ViktorException("You have to tell me when this event starts.");
+            } else if (toDate.isEmpty()) {
+                throw new ViktorException("You have to tell me when this event ends.");
             }
-            Event event = new Event(eventParts[0].trim(), timeParts[0].trim(), timeParts[1].trim());
+            Event event = new Event(description, fromDate, toDate);
             taskList.addTask(event);
             output = event.getDescription();
             break;

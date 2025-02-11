@@ -24,17 +24,17 @@ public class FindCommand implements Commandable {
 
     @Override
     public String execute() throws ViktorException {
-        boolean found = false;
         StringBuilder response = new StringBuilder("Here are your tasks matching \"" + nameInput + "\":\n");
 
+        boolean taskFound = false;
         for (Task task : tasks.getTasks()) {
             if (task.getDescription().contains(nameInput)) {
                 response.append(task).append("\n");
-                found = true;
+                taskFound = true;
             }
         }
 
-        if (!found) {
+        if (!taskFound) {
             response.append("Vast emptiness is all there is. \"").append(nameInput)
                     .append("\"? I haven't heard of that in a long, long time. ")
                     .append("There are no tasks matching \"").append(nameInput).append("\"!");
