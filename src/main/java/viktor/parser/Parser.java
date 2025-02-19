@@ -95,7 +95,8 @@ public class Parser {
             return new TimeCommand(tasks, words[1]);
 
         default:
-            throw new ViktorException("Unknown command: " + commandWord);
+            throw new ViktorException("Hey, I know you're sleep-deprived or something but that, "
+                    + commandWord + ", it's nonsense! Try again!");
         }
     }
 }

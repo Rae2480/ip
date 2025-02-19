@@ -76,7 +76,7 @@ public class AddTaskCommand implements Commandable {
             break;
 
         case DEADLINE:
-            String[] parts = taskDescription.split("by");
+            String[] parts = taskDescription.split("/by");
             description = parts[0].trim();
             dueDate = parts[1].trim();
             if (parts.length > 2) {
@@ -92,14 +92,14 @@ public class AddTaskCommand implements Commandable {
             break;
 
         case EVENT:
-            String[] eventParts = taskDescription.split("from", 2);
+            String[] eventParts = taskDescription.split("/from", 2);
             description = eventParts[0].trim();
             if (description.isEmpty()) {
                 throw new ViktorException("You have to tell me what the event is!");
             } else if (eventParts[1].trim().isEmpty()) {
                 throw new ViktorException("Invalid event! Please provide both start and end times.");
             }
-            String[] timeParts = eventParts[1].split("to", 2);
+            String[] timeParts = eventParts[1].split("/to", 2);
             fromDate = timeParts[0].trim();
             toDate = timeParts[1].trim();
             if (fromDate.isEmpty()) {
