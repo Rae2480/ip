@@ -36,8 +36,7 @@ public class FindCommand implements Commandable {
 
         if (!taskFound) {
             response.append("Vast emptiness is all there is. \"").append(nameInput)
-                    .append("\"? I haven't heard of that in a long, long time. ")
-                    .append("There are no tasks matching \"").append(nameInput).append("\"!");
+                    .append("\"? I haven't heard of that in a long, long time. ");
         }
 
         response.append("\n");

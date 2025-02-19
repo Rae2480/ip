@@ -3,7 +3,7 @@ package viktor.tasks;
 /**
  * Represents an todo task with a description.
  */
-public class Todo extends Task {
+public class TodoTask extends Task {
     private final String type;
 
     /**
@@ -11,7 +11,7 @@ public class Todo extends Task {
      *
      * @param description The description of the task.
      */
-    public Todo(String description) {
+    public TodoTask(String description) {
         super(description);
         this.type = "T";
     }

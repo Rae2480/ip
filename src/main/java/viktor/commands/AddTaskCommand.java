@@ -6,10 +6,10 @@ import java.util.Random;
 import viktor.exceptions.ViktorException;
 import viktor.storage.Storage;
 import viktor.tasks.DeadlineTask;
-import viktor.tasks.Event;
+import viktor.tasks.EventTask;
 import viktor.tasks.TaskList;
 import viktor.tasks.TaskType;
-import viktor.tasks.Todo;
+import viktor.tasks.TodoTask;
 
 /**
  * Command to add a task to the task list based on user input.
@@ -70,18 +70,19 @@ public class AddTaskCommand implements Commandable {
 
         switch (taskType) {
         case TODO:
-            Todo todo = new Todo(taskDescription);
+            TodoTask todo = new TodoTask(taskDescription);
             taskList.addTask(todo);
             output = todo.getDescription();
             break;
 
         case DEADLINE:
-            String[] parts = taskDescription.split("/by");
+            String[] parts = taskDescription.split("/by", 2);
+            if (parts.length < 2) {
+                throw new ViktorException("Invalid deadline format! Use: deadline <description> /by <due date>");
+            }
             description = parts[0].trim();
             dueDate = parts[1].trim();
-            if (parts.length > 2) {
-                throw new ViktorException("Something's wrong! Don't you know what a deadline is?.");
-            } else if (description.isEmpty()) {
+            if (description.isEmpty()) {
                 throw new ViktorException("Please provide a description of this deadline task!");
             } else if (dueDate.isEmpty()) {
                 throw new ViktorException("When's the deadline? Please focus, when is it due!");
@@ -93,13 +94,17 @@ public class AddTaskCommand implements Commandable {
 
         case EVENT:
             String[] eventParts = taskDescription.split("/from", 2);
+            if (eventParts.length < 2) {
+                throw new ViktorException("Invalid event format! Use: event <description> /from <start> /to <end>");
+            }
             description = eventParts[0].trim();
             if (description.isEmpty()) {
                 throw new ViktorException("You have to tell me what the event is!");
-            } else if (eventParts[1].trim().isEmpty()) {
-                throw new ViktorException("Invalid event! Please provide both start and end times.");
             }
-            String[] timeParts = eventParts[1].split("/to", 2);
+            String[] timeParts = eventParts[1].trim().split("/to", 2);
+            if (timeParts.length < 2) {
+                throw new ViktorException("Invalid event format! Use: event <description> /from <start> /to <end>");
+            }
             fromDate = timeParts[0].trim();
             toDate = timeParts[1].trim();
             if (fromDate.isEmpty()) {
@@ -107,7 +112,8 @@ public class AddTaskCommand implements Commandable {
             } else if (toDate.isEmpty()) {
                 throw new ViktorException("You have to tell me when this event ends.");
             }
-            Event event = new Event(description, fromDate, toDate);
+
+            EventTask event = new EventTask(description, fromDate, toDate);
             taskList.addTask(event);
             output = event.getDescription();
             break;

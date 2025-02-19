@@ -6,7 +6,7 @@ import java.time.format.DateTimeParseException;
 import viktor.exceptions.ViktorException;
 import viktor.parser.DateParser;
 import viktor.tasks.DeadlineTask;
-import viktor.tasks.Event;
+import viktor.tasks.EventTask;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
 
@@ -48,7 +48,7 @@ public class TimeCommand implements Commandable {
                 "Here are your tasks for " + DateParser.formatDate(targetDate) + ":\n");
         for (Task task : tasks.getTasks()) {
             if ((task instanceof DeadlineTask && ((DeadlineTask) task).matchesDate(targetDate))
-                    || (task instanceof Event && ((Event) task).matchesDate(targetDate))) {
+                    || (task instanceof EventTask && ((EventTask) task).matchesDate(targetDate))) {
                 response.append(task).append("\n");
                 isFound = true;
             }

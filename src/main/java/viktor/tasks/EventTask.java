@@ -8,7 +8,7 @@ import viktor.parser.DateParser;
 /**
  * Represents an event task with a description, start time, and end time.
  */
-public class Event extends Task {
+public class EventTask extends Task {
     private final String type;
     private final LocalDateTime from;
     private final LocalDateTime to;
@@ -20,7 +20,7 @@ public class Event extends Task {
      * @param from The start date of the task in string format.
      * @param to The end date of the task in string format.
      */
-    public Event(String description, String from, String to) {
+    public EventTask(String description, String from, String to) {
         super(description);
         this.type = "E";
         this.from = DateParser.parseDateTime(from);;

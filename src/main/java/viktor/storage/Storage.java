@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import viktor.tasks.DeadlineTask;
-import viktor.tasks.Event;
+import viktor.tasks.EventTask;
 import viktor.tasks.Task;
 import viktor.tasks.TaskList;
-import viktor.tasks.Todo;
+import viktor.tasks.TodoTask;
 
 
 /**
@@ -57,7 +57,7 @@ public class Storage {
                 String line = s.nextLine();
                 String[] parts = line.split(" \\| ");
                 if (parts[0].equals("T")) {
-                    tasks.add(new Todo(parts[2]));
+                    tasks.add(new TodoTask(parts[2]));
                     if (parts[1].equals("X")) {
                         tasks.get(tasks.size() - 1).beDone();
                     }
@@ -67,7 +67,7 @@ public class Storage {
                         tasks.get(tasks.size() - 1).beDone();
                     }
                 } else if (parts[0].equals("E")) {
-                    tasks.add(new Event(parts[2], parts[3], parts[4]));
+                    tasks.add(new EventTask(parts[2], parts[3], parts[4]));
                     if (parts[1].equals("X")) {
                         tasks.get(tasks.size() - 1).beDone();
                     }
