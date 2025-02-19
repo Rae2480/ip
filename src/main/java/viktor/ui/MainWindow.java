@@ -42,9 +42,39 @@ public class MainWindow extends AnchorPane {
 
     private int currentImageIndex = 0; // Track which image is being used
 
+
+    /**
+     * Automatically scrolls the scroll pane to the bottom whenever the dialog
+     * container is updated with new content.
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+
+        // Ensure the ScrollPane resizes with the window
+        AnchorPane.setTopAnchor(scrollPane, 50.0); // Adjust based on header size
+        AnchorPane.setBottomAnchor(scrollPane, 0.0);
+        AnchorPane.setLeftAnchor(scrollPane, 0.0);
+        AnchorPane.setRightAnchor(scrollPane, 0.0);
+
+        // Make dialogContainer expand with the ScrollPane
+        dialogContainer.prefWidthProperty().bind(scrollPane.widthProperty().subtract(20)); // Ensure padding
+        dialogContainer.setMaxWidth(500); // Prevent messages from stretching too much
+
+        // Ensure input field and send button expand dynamically
+        AnchorPane.setBottomAnchor(userInput, 10.0);
+        AnchorPane.setLeftAnchor(userInput, 10.0);
+        AnchorPane.setRightAnchor(userInput, 80.0); // Leave space for send button
+
+        AnchorPane.setBottomAnchor(sendButton, 10.0);
+        AnchorPane.setRightAnchor(sendButton, 10.0);
+
+        // Ensure header stays at the top and resizes
+        AnchorPane.setTopAnchor(headerBox, 0.0);
+        AnchorPane.setLeftAnchor(headerBox, 0.0);
+        AnchorPane.setRightAnchor(headerBox, 0.0);
     }
 
     /** Injects the Viktor instance and shows appropriate messages */
@@ -92,6 +122,10 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
     }
 
+    /**
+     * Resets the first launch flag to true. This is used to show the welcome message
+     * again after the user resets the application.
+     */
     public void resetFirstLaunch() {
         isFirstLaunch = true; // Reset first launch flag to true
     }
