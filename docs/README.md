@@ -46,10 +46,42 @@ Viktor helps you manage tasks efficiently. You can add, list, mark as done, dele
   ```sh
   find meeting
   ```
+- **Update a task**:
+  ```sh
+  update 3 /desc New description
+  ```
+- **Change a task’s date/time**:
+  ```sh
+  update 2 /by 2025-02-22 12:00
+  ```
+  ```sh
+  update 4 /from 2025-02-22 10:00 /to 2025-02-22 12:00
+  ```
+- **View task details**:
+  ```sh
+  view 5
+  ```
+- **Undo last action**:
+  ```sh
+  undo
+  ```
+- **Redo last undone action**:
+  ```sh
+  redo
+  ```
+- **Clear all tasks**:
+  ```sh
+  clear
+  ```
+- **View available commands**:
+  ```sh
+  help
+  ```
 - **Exit Viktor**:
   ```sh
   bye
   ```
+
 
 ### Persistent Storage
 Viktor saves tasks automatically in `tasks.txt`. If the file is missing or corrupted, Viktor will handle it gracefully.
