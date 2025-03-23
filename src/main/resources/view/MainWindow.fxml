@@ -17,7 +17,7 @@
         <!-- VBox to contain Header and Scrollable part -->
         <VBox fx:id="mainContainer" spacing="5.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            
+
             <!-- Header Box -->
             <HBox fx:id="headerBox" prefHeight="50.0" styleClass="header-box" alignment="CENTER">
                 <children>

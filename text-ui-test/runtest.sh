@@ -17,7 +17,7 @@ fi
 if [ -e "ip/data/viktor.txt" ]
 then
     echo "Clearing viktor.txt before running the test..."
-    > ip/data/viktor.txt  
+    > ip/data/viktor.txt
 fi
 
 # compile the code into the bin folder, terminates if error occurred
