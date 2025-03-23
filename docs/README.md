@@ -2,7 +2,7 @@
 
 ## Getting Started
 ### Installation
-To use Viktor, ensure you have Java 11 or later installed. Follow these steps:
+To use Viktor, ensure you have Java 17. Follow these steps:
 1. Download `viktor.jar` from the release page.
 2. Open a terminal and navigate to the folder containing `viktor.jar`.
 3. Run Viktor with:
@@ -20,15 +20,15 @@ Viktor helps you manage tasks efficiently. You can add, list, mark as done, dele
 #### Commands:
 - **Add a ToDo**:
   ```sh
-  todo Read a book
+  add todo Read a book
   ```
 - **Add a Deadline**:
   ```sh
-  deadline Submit report /by 2025-02-20 18:00
+  add deadline Submit report /by 2/2/2025 1800
   ```
 - **Add an Event**:
   ```sh
-  event Team meeting /from 2025-02-20 14:00 /to 2025-02-20 16:00
+  add event Team meeting /from 1/3/2025 1800 /to 1/3/2025 1800
   ```
 - **List all tasks**:
   ```sh
@@ -36,42 +36,27 @@ Viktor helps you manage tasks efficiently. You can add, list, mark as done, dele
   ```
 - **Mark a task as done**:
   ```sh
-  done 1
+  mark 1
+  ```
+- **Unmark a task as done**:
+  ```sh
+  unmark 1
   ```
 - **Delete a task**:
   ```sh
   delete 2
   ```
-- **Find a task**:
+- **Find all tasks containing a keyword**:
   ```sh
   find meeting
   ```
-- **Update a task**:
+- **Find all tasks occuring on a specific date**:
   ```sh
-  update 3 /desc New description
-  ```
-- **Change a task’s date/time**:
-  ```sh
-  update 2 /by 2025-02-22 12:00
-  ```
-  ```sh
-  update 4 /from 2025-02-22 10:00 /to 2025-02-22 12:00
-  ```
-- **View task details**:
-  ```sh
-  view 5
-  ```
-- **Undo last action**:
-  ```sh
-  undo
-  ```
-- **Redo last undone action**:
-  ```sh
-  redo
+  time 2/3/2025
   ```
 - **Clear all tasks**:
   ```sh
-  clear
+  reset
   ```
 - **View available commands**:
   ```sh
@@ -84,14 +69,13 @@ Viktor helps you manage tasks efficiently. You can add, list, mark as done, dele
 
 
 ### Persistent Storage
-Viktor saves tasks automatically in `tasks.txt`. If the file is missing or corrupted, Viktor will handle it gracefully.
+Viktor saves tasks automatically in `viktor.txt`. If the file is missing or corrupted, Viktor will handle it gracefully.
 
 ### Updating Viktor
 To update, replace your `viktor.jar` file with the latest version from the release page.
 
 ### Troubleshooting
-- **Viktor doesn’t start**: Ensure Java 11+ is installed.
-- **Tasks not saving**: Check if `tasks.txt` is writable.
+- **Viktor doesn’t start**: Ensure Java 17 is installed.
 - **Command not recognized**: Verify the syntax or use `help`.
 
 This guide helps you quickly start using Viktor and make the most of its features.

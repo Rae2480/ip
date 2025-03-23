@@ -124,13 +124,15 @@ public class DateParser {
         Matcher matcher = RELATIVE_DATE_PATTERN.matcher(dateInput.toLowerCase());
 
         if (matcher.matches()) {
-            return parseRelativeDate(matcher.group(1));
+            String relativeDate = matcher.group(1);
+            if (relativeDate != null) {
+                return parseRelativeDate(relativeDate);
+            }
         }
 
-        LocalDate date = LocalDate.parse(dateInput, INPUT_DATE_FORMATTER);
-        assert date != null : "Date is null for parseDateOnly";
-        return date;
+        return LocalDate.parse(dateInput, INPUT_DATE_FORMATTER);
     }
+
 
     /**
      * Formats a LocalDate object into a string with the format MMM d yyyy.

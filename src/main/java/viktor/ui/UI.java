@@ -18,7 +18,7 @@ public class UI {
                 + "Deleting a Task\n"
                 + "Marking Tasks as Done\n"
                 + "Viewing Tasks\n"
-                + "Finding Tasks\n"
+                + "Finding Tasks by Keyword\n"
                 + "Viewing Tasks by Date\n"
                 + "Exiting the Program\n"
                 + "Resetting the Program\n"

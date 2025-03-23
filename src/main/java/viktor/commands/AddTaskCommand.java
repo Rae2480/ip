@@ -20,8 +20,7 @@ public class AddTaskCommand implements Commandable {
         "Progress requires sacrifice, but it is always worth the cost for",
         "Even the greatest minds require assistance sometimes. You seek to",
         "Ah, progress—the double-edged sword of innovation, alongside:",
-        "Every leap forward brings challenges, but such is the price of this great task,",
-        "Interesting... I will have to do more research about this"
+        "Every leap forward brings challenges, but such is the price of this great task,"
     };
     private String userInput;
     private TaskList taskList;
