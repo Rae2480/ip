@@ -1,4 +1,1 @@
-E |   | party | Feb. 20 2025, 12:00 | Feb. 20 2025, 13:00
-T | X | gym session
-D |   | pay fees | Feb. 24 2025, 18:00
-E |   | go hiking | Feb. 21 2025, 08:00 | Feb. 21 2025, 14:00
+E |   | party | Mar. 2 2025, 18:00 | Mar. 3 2025, 19:00

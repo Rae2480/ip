@@ -46,6 +46,7 @@ public class Parser {
         case "FIND":
             return handleFind(words, tasks);
         case "BYE":
+            System.exit(0);
             return new ByeCommand();
         case "RESET":
             return new ResetCommand(tasks);
