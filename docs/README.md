@@ -13,12 +13,14 @@ To use Viktor, ensure you have Java 17. Follow these steps:
 ### Basic Usage
 Once Viktor starts, type a command and press Enter. Viktor will respond accordingly.
 
+For a visual aid, peruse the UI [here](UI.png).
+
 ## Features
 ### Task Management
 Viktor helps you manage tasks efficiently. You can add, list, mark as done, delete, and search tasks.
 
 #### Commands:
-- **Add a ToDo**:
+- **Add a Todo**:
   ```sh
   add todo Read a book
   ```
@@ -77,6 +79,7 @@ To update, replace your `viktor.jar` file with the latest version from the relea
 ### Troubleshooting
 - **Viktor doesn’t start**: Ensure Java 17 is installed.
 - **Command not recognized**: Verify the syntax or use `help`.
+- **Trouble saving tasks**: Ensure you run viktor.jar with the correct command as seen [here](#installation).
 
-This guide helps you quickly start using Viktor and make the most of its features.
+This guide helps you quickly start using Viktor and make the most of its features. Hope you enjoy your productive time with Viktor! 
 
